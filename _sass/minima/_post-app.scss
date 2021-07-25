@@ -1,0 +1,24 @@
+.post-download-buttons {
+    margin-bottom: 40px;
+    display: flex;
+
+    .post-download-android, .post-download-ios {
+        height: 50px;
+        margin-right: 20px;
+        a {
+            height: 100%;
+            img {
+                height: 100%;
+            }
+        }
+    }
+}
+
+.post-images {
+    display: flex;
+    padding-bottom: 10px;
+
+    .post-image {
+        flex: 1;
+    }
+}

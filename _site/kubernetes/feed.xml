@@ -9,8 +9,8 @@
         <author>
             <name>Jay Tong</name>
         </author><entry>
-            <title>New Practice for TOEIC® Test</title>
-            <id>http://localhost:4000/app/new-toeic-test</id>
-            <link href="http://localhost:4000/app/new-toeic-test" />
-            <updated>2021-07-24T10:24:45+07:00</updated>
+            <title>Kubernestes from Zero</title>
+            <id>http://localhost:4000/kubernetes/kubernestes-from-Zero</id>
+            <link href="http://localhost:4000/kubernetes/kubernestes-from-Zero" />
+            <updated>2021-07-24T11:24:45+07:00</updated>
         </entry></feed>

@@ -4,5 +4,6 @@
 
 layout: home-app
 title: "App"
+list_title: "Check out all my amazing apps"
 category: app
 ---

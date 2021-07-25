@@ -1,1 +1,30 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-07-25T14:27:57+07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">TvTroid</title><subtitle>Learn Smart, Achieve More!</subtitle><author><name>Jay Tong</name></author><entry><title type="html">Kubernestes from Zero</title><link href="http://localhost:4000/blog/2021/07/24/first-post.html" rel="alternate" type="text/html" title="Kubernestes from Zero" /><published>2021-07-24T11:24:45+07:00</published><updated>2021-07-24T11:24:45+07:00</updated><id>http://localhost:4000/blog/2021/07/24/first-post</id><content type="html" xml:base="http://localhost:4000/blog/2021/07/24/first-post.html">&lt;p&gt;ok&lt;/p&gt;</content><author><name>Jay Tong</name></author><category term="blog" /><summary type="html">ok</summary></entry><entry><title type="html">New TOEIC Test</title><link href="http://localhost:4000/app/2021/07/24/first-post.html" rel="alternate" type="text/html" title="New TOEIC Test" /><published>2021-07-24T10:24:45+07:00</published><updated>2021-07-24T10:24:45+07:00</updated><id>http://localhost:4000/app/2021/07/24/first-post</id><content type="html" xml:base="http://localhost:4000/app/2021/07/24/first-post.html">&lt;p&gt;ok&lt;/p&gt;</content><author><name>Jay Tong</name></author><category term="app" /><summary type="html">ok</summary></entry></feed>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-07-25T21:36:45+07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">TvTroid</title><subtitle>Learn Smart, Achieve More!</subtitle><author><name>Jay Tong</name></author><entry><title type="html">Kubernestes from Zero</title><link href="http://localhost:4000/kubernetes/kubernestes-from-Zero" rel="alternate" type="text/html" title="Kubernestes from Zero" /><published>2021-07-24T11:24:45+07:00</published><updated>2021-07-24T11:24:45+07:00</updated><id>http://localhost:4000/kubernetes/first-post</id><content type="html" xml:base="http://localhost:4000/kubernetes/kubernestes-from-Zero">&lt;p&gt;ok&lt;/p&gt;</content><author><name>Jay Tong</name></author><category term="kubernetes" /><summary type="html">ok</summary></entry><entry><title type="html">New Practice for TOEIC® Test</title><link href="http://localhost:4000/app/new-toeic-test" rel="alternate" type="text/html" title="New Practice for TOEIC® Test" /><published>2021-07-24T10:24:45+07:00</published><updated>2021-07-24T10:24:45+07:00</updated><id>http://localhost:4000/app/new-toeic-test</id><content type="html" xml:base="http://localhost:4000/app/new-toeic-test">&lt;p&gt;By applying the intelligent learning method - Spaced Repetition - you will see how ever easy to learn TOEIC® New Format 2020.&lt;/p&gt;
+
+&lt;p&gt;=&amp;gt; App includes more than 1.000 TOEIC® questions from New Economy TOEIC®, Hacker New TOEIC®… NEW FORMAT 2020&lt;/p&gt;
+
+&lt;p&gt;=&amp;gt; Spaced repetition is a learning technique that incorporates increasing intervals of time between subsequent review of previously learned material in order to exploit the psychological spacing effect. Spaced repetition is commonly applied in contexts in which a learner must acquire a large number of items and retain them indefinitely in memory. It is, therefore, well suited for the problem of vocabulary acquisition in the course of second language learning, due to the size of the target language’s inventory of open-class words. (Wikipedia)&lt;/p&gt;
+
+&lt;p&gt;??? What’s new in the TOEIC® New format?&lt;/p&gt;
+
+&lt;p&gt;———- Listening Section ———-&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;A reduced number of Photograph and Question Response questions&lt;/li&gt;
+  &lt;li&gt;An increased number of Conversation questions&lt;/li&gt;
+  &lt;li&gt;Conversations that include shorter turns and more exchanges&lt;/li&gt;
+  &lt;li&gt;More than two speakers in some conversations&lt;/li&gt;
+  &lt;li&gt;Conversations that include elisions (going to à gonna) and incomplete sentences/fragments (Yes, in a minute; Down the hall; Could you?)&lt;/li&gt;
+  &lt;li&gt;New question types testing the connection of what is heard in a conversation or talk and what is seen in a graphic&lt;/li&gt;
+  &lt;li&gt;New question types testing a speaker’s implied meaning in the context of a conversation or talk&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;———- Reading Section ———-&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;A reduced number of Incomplete Sentence questions&lt;/li&gt;
+  &lt;li&gt;Two new question-types testing understanding of the overall organization of passages:&lt;/li&gt;
+  &lt;li&gt;Text completion questions that ask test takers to choose which new sentence fits best in the context of the overall passage&lt;/li&gt;
+  &lt;li&gt;Set-based questions that ask test takers to understand where in the passage a sentence belongs&lt;/li&gt;
+  &lt;li&gt;Text messages, instant messages or online chat conversations with multiple writers&lt;/li&gt;
+  &lt;li&gt;Questions testing the understanding of three related texts&lt;/li&gt;
+  &lt;li&gt;A small increase in the number of single- and multiple-passage questions&lt;/li&gt;
+  &lt;li&gt;New questions about understating the writer’s words in context&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Jay Tong</name></author><category term="app" /><summary type="html">By applying the intelligent learning method - Spaced Repetition - you will see how ever easy to learn TOEIC® New Format 2020.</summary></entry></feed>

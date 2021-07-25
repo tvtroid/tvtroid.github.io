@@ -194,3 +194,11 @@ table td { border: 1px solid #e8e8e8; }
 .highlight .vg { color: #008080; }
 .highlight .vi { color: #008080; }
 .highlight .il { color: #099; }
+
+.post-download-buttons { margin-bottom: 40px; display: flex; }
+.post-download-buttons .post-download-android, .post-download-buttons .post-download-ios { height: 50px; margin-right: 20px; }
+.post-download-buttons .post-download-android a, .post-download-buttons .post-download-ios a { height: 100%; }
+.post-download-buttons .post-download-android a img, .post-download-buttons .post-download-ios a img { height: 100%; }
+
+.post-images { display: flex; padding-bottom: 10px; }
+.post-images .post-image { flex: 1; }
