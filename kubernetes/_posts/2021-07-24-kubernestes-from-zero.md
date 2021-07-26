@@ -5,7 +5,7 @@ permalink: "/kubernetes/kubernestes-from-zero"
 date: 2021-07-24 11:24:45 +0700
 category: kubernetes
 ---
-##What is Kubernetes (k8s)?
+## What is Kubernetes (k8s)?
 
 **Ofical definition:**
 * Open source `container orchestration tool`
@@ -22,7 +22,7 @@ category: kubernetes
 * `Scalability` or high performance (load fast, response fast to users actions)
 * `Disaster recovery` - backup and restore (data is lost, server error,... we still have mechanism to backup and restore -> not lose data)
 
-##Kubernetes components
+## Kubernetes components
 
 **Pod:**
 * Smallest unit of K8s
