@@ -220,6 +220,8 @@ table td { border: 1px solid #e8e8e8; }
 .home-featured .home-featured-right { flex: 5; }
 .home-featured .home-featured-right .home-featured-hidden { max-height: 94%; overflow: hidden; line-height: 1.8rem; overflow-wrap: break-word; }
 
+.rss-subscribe { margin-top: 20px; }
+
 .home-app-li { display: flex; }
 .home-app-li .home-app-image { margin-right: 10px; }
 .home-app-li .home-app-image img { width: 90px; height: 160px; }
