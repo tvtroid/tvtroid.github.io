@@ -205,10 +205,10 @@ table td { border: 1px solid #e8e8e8; }
 
 .post-image { float: right; padding: 0 0 10px 10px; width: 33%; max-height: 500px; }
 
-.post-section-header { margin-top: 30px; border-top: 1px solid #efefef; }
+.post-section-header { margin-top: 30px; padding-top: 10px; border-top: 1px solid #efefef; }
 
-.home-post-list { display: inline-block; overflow: auto; white-space: nowrap; }
-.home-post-list li { display: inline-block; clear: both; margin-right: 4px; }
+.home-post-list { display: inline-block; overflow: auto; white-space: nowrap; margin-bottom: 0px; }
+.home-post-list li { display: inline-block; clear: both; margin-right: 4px; margin-bottom: 0px; }
 .home-post-list li .home-post-image { display: inline-block; }
 .home-post-list li .home-post-image img { width: 90px; height: 160px; }
 .home-post-list li .home-post-text { padding: 4px; }

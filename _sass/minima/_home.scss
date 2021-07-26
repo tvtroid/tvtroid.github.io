@@ -1,12 +1,20 @@
+.post-section-header {
+    margin-top: 30px;
+    padding-top: 10px;
+    border-top: 1px solid #efefef;
+}
+
 .home-post-list {
     display: inline-block;
     overflow: auto;
     white-space:nowrap;
+    margin-bottom: 0px;
 
     li {
         display: inline-block;
         clear: both;
         margin-right: 4px;
+        margin-bottom: 0px;
 
         .home-post-image {
             display: inline-block;
