@@ -4,6 +4,7 @@
 
 layout: home-app
 title: "App"
+permalink: "app"
 list_title: "Check out all my amazing apps"
 category: app
 ---

@@ -1,0 +1,15 @@
+.home-app-li {
+    display: flex;
+    
+    .home-app-image {
+        margin-right: 10px;
+        img {
+            width: 90px;
+            height: 160px;
+        }
+    }
+    .home-app-text {
+        display: flex;
+        flex-direction: column;
+    }
+}

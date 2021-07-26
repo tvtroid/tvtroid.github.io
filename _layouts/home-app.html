@@ -8,15 +8,33 @@ layout: default
     <ul class="post-list">
       {%- for post in site.posts -%}
       {%- if post.category=="app" -%}
-      <li>
-        <a class="post-link" href="{{ post.url | relative_url }}">
-          {{ post.title | escape }}
-        </a>
-        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-        <span class="post-meta">{{ post.date | date: date_format }} • {%- include read-time.html content=post.content -%}</span>
-        {%- if site.show_excerpts -%}
-          {{ post.excerpt }}
-        {%- endif -%}
+      <li class="home-app-li">
+        <div class="home-app-image">
+          <a href="{{ post.url | relative_url }}">
+            {%- if post.image_1 -%}
+            <img src="{{ post.image_1 | relative_url }}" alt="Details"></img>
+            {%- endif -%}
+            {%- if post.image_2 -%}
+            <img src="{{ post.image_2 | relative_url }}" alt="Details"></img>
+            {%- endif -%}
+          </a>
+        </div>
+        <div class="home-app-text">
+          <a class="post-link" href="{{ post.url | relative_url }}">
+            {{ post.title | escape }}
+          </a>
+          {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+          <span class="post-meta">{{ post.date | date: date_format }}
+            {%- if post.android_installs -%}
+            <span> • {{ post.android_installs }} installs</span>
+            {%- endif -%}
+            <span> • {% include read-time.html content=post.content %}</span>
+          </span>
+          {%- if site.show_excerpts -%}
+            {{ post.excerpt }}
+          {%- endif -%}
+        </div>
+        
       </li>
       {%- endif -%}
       {%- endfor -%}

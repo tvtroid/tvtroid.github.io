@@ -202,3 +202,25 @@ table td { border: 1px solid #e8e8e8; }
 
 .post-images { display: flex; padding-bottom: 10px; }
 .post-images .post-image { flex: 1; }
+
+.post-image { float: right; padding: 0 0 10px 10px; width: 33%; max-height: 500px; }
+
+.post-section-header { margin-top: 30px; border-top: 1px solid #efefef; }
+
+.home-post-list { display: inline-block; overflow: auto; white-space: nowrap; }
+.home-post-list li { display: inline-block; clear: both; margin-right: 4px; }
+.home-post-list li .home-post-image { display: inline-block; }
+.home-post-list li .home-post-image img { width: 90px; height: 160px; }
+.home-post-list li .home-post-text { padding: 4px; }
+.home-post-list li .home-post-text a { display: -webkit-box; max-width: 250px; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; white-space: normal; -webkit-line-clamp: 2; height: 72px; }
+
+.home-featured { display: inline-flex; max-height: 300px; }
+.home-featured .home-featured-left { flex: 2; margin-right: 10px; }
+.home-featured .home-featured-left img { max-height: 300px; width: 100%; }
+.home-featured .home-featured-right { flex: 5; }
+.home-featured .home-featured-right .home-featured-hidden { max-height: 94%; overflow: hidden; line-height: 1.8rem; overflow-wrap: break-word; }
+
+.home-app-li { display: flex; }
+.home-app-li .home-app-image { margin-right: 10px; }
+.home-app-li .home-app-image img { width: 90px; height: 160px; }
+.home-app-li .home-app-text { display: flex; flex-direction: column; }

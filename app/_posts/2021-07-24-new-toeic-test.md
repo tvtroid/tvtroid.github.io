@@ -4,10 +4,13 @@ title: "New Practice for TOEIC® Test"
 permalink: "/app/new-toeic-test"
 date: 2021-07-24 10:24:45 +0700
 category: app
+featured: true
 android_link: https://play.google.com/store/apps/details?id=com.tvt.toeictest.newformat2019
 ios_link: https://apps.apple.com/vn/app/new-toeic-test/id1462727474
 image_1: "/images/toeic-test-01.png"
 image_2: "/images/toeic-test-02.png"
+android_installs: "200,000+"
+android_stars: "4.7+"
 ---
 By applying the intelligent learning method - Spaced Repetition - you will see how ever easy to learn TOEIC® New Format 2020.
 
@@ -35,3 +38,5 @@ By applying the intelligent learning method - Spaced Repetition - you will see h
 - Questions testing the understanding of three related texts
 - A small increase in the number of single- and multiple-passage questions
 - New questions about understating the writer’s words in context
+
+TOEIC® is a registered trademark of Educational Testing Service (ETS). This product is not endorsed or approved by ETS.

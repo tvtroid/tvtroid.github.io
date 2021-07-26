@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <link href="http://localhost:4000/app/feed.xml" rel="self" type="application/atom+xml"/>
     <link href="http://localhost:4000/app/" rel="alternate" type="text/html"/>
-    <updated>2021-07-25T21:36:45+07:00</updated>
+    <updated>2021-07-26T16:39:01+07:00</updated>
     <id>http://localhost:4000/app/feed.xml</id>
     <title>TvTroid | App</title>
     <subtitle>Learn Smart, Achieve More!</subtitle>
@@ -13,4 +13,14 @@
             <id>http://localhost:4000/app/new-toeic-test</id>
             <link href="http://localhost:4000/app/new-toeic-test" />
             <updated>2021-07-24T10:24:45+07:00</updated>
+        </entry><entry>
+            <title>New Vocabulary for TOEIC® Test</title>
+            <id>http://localhost:4000/app/new-toeic-vocabulary</id>
+            <link href="http://localhost:4000/app/new-toeic-vocabulary" />
+            <updated>2021-07-24T09:24:45+07:00</updated>
+        </entry><entry>
+            <title>Crack the Code Pro</title>
+            <id>http://localhost:4000/app/crack-the-code</id>
+            <link href="http://localhost:4000/app/crack-the-code" />
+            <updated>2021-07-24T08:24:45+07:00</updated>
         </entry></feed>

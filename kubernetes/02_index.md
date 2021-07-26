@@ -4,6 +4,7 @@
 
 layout: home-kubernetes
 title: "Kubernetes"
+permalink: kubernetes
 list_title: "Recent posts"
-category: blog
+category: kubernetes
 ---
