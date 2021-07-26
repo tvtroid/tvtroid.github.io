@@ -31,7 +31,7 @@ category: kubernetes
 * Each Pod gets its own IP address (each pod can communicate each other via the IP address)
 * New IP address on re-creation (hard to communicate -> Service will solve the problem)
 
-<img width="200" src="https://user-images.githubusercontent.com/87863039/127009930-2926f6c8-66fe-4e12-be39-3dcd9e84720e.png">
+<img width="400" src="https://user-images.githubusercontent.com/87863039/127009930-2926f6c8-66fe-4e12-be39-3dcd9e84720e.png">
 
 **Service**
 * static/permanent IP address (attach to each Pod)
