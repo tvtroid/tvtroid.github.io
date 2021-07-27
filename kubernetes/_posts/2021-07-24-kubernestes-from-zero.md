@@ -24,7 +24,7 @@ category: kubernetes
 
 ## Kubernetes components
 
-**Pod:**
+**Pod**
 * smallest unit of K8s
 * abstraction over container (it creates a running environmennt or a layer on top of the containers -> we only interact with the Kubernetes layer)
 * usually 1 application per Pod
