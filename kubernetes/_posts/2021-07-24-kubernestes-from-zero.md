@@ -68,7 +68,7 @@ category: kubernetes
 **StatefulSet**
 * for stateFUL apps or Databases
 
-=> Deployment and StatefulSet used for Replication -> app will have no downtime
+=> Deployment and StatefulSet used for Replication -> avoid downtime
 
 <img width="500" src="https://user-images.githubusercontent.com/87863039/127174947-d054bab5-30da-46bf-bb53-9836b54fcea7.png">
 
