@@ -73,12 +73,12 @@ category: kubernetes
 <img width="500" src="https://user-images.githubusercontent.com/87863039/127174947-d054bab5-30da-46bf-bb53-9836b54fcea7.png">
 
 ## Kubernetes Architecture
-**Node (working machine in k8s cluster)
+**Node (working machine in k8s cluster)**
 * each Node has multiple Pods on it
 * 3 processes must be installed in every Node (Container runtime such as Docker, Kubelet - interacts with container runtime and Node/Machine, Kube Proxy - forwards the requests)
 * Worker Nodes do the actual work
 
-**Master Node
+**Master Node**
 * 4 processes (API server-cluster gateway,acts as a gatekeeper for authentication; Scheduler-just decides on which Node new Pod should be scheduled,kubelet in each Node will do the actual schedule;Controller Manager-detects cluster state changes such as Pods die;etcd-cluster brain,key value store,cluster changes get stored into key value store,application data is NOT stored in etcd)
 * `Api server` is load balanced
 * `etcd` is distributed across all Master Nodes
