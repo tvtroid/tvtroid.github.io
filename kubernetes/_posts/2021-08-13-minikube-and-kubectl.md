@@ -13,4 +13,49 @@ category: kubernetes
 It's the command line tool to interact with Minikube cluster or Cloud cluster
 <img width="500" src="https://user-images.githubusercontent.com/87863039/129361592-b9dd6cf2-f543-407f-a2c9-4ae85a3fbc76.png">
 
+## Main `kubectl` commands
+<img width="500" src="https://user-images.githubusercontent.com/87863039/129447534-920821cd-5670-48bd-886d-d15b863133a7.png">
+
+* `kubectl get nodes`
+* `kubectl get pods`
+* `kubectl get services`
+
+**Create Deployment - abstraction of Pod**
+
+* `kubectl create deployment nginx-depl --image=nginx`
+* `kubectl get deployment`
+* `kubectl get pod`
+* `kubectl get replicaset`
+
+* ReplicaSet is a layer between Deployment and Pod
+
+<img width="500" src="https://user-images.githubusercontent.com/87863039/129447973-083d3f95-af6e-43df-873b-d0eca39626e8.png">
+
+**Edit Deployment**
+
+* `kubectl edit deployment nginx-depl`
+* `kubectl get pod`
+* `kubectl get replicaset`
+
+**Debug**
+
+`kubectl logs [pod-name]`
+
+**Login to terminal of the Pod**
+
+* `kubectl exec -it [pod-name] -- bin/bash`
+* `ls`
+* `exit`
+
+**Delete Deployment (Pod)**
+
+* `kubectl delete deployment mongo-depl`
+
+**Apply the config file**
+
+* `kubectl apply -f [filename]`
+
+
+
+
 
