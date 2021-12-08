@@ -24,105 +24,77 @@ Nested if statements make our code more complex and difficult to maintain
 <p>
 
 ```ts
-router.beforeEach(async (to, from, next) => {
-  // Redirect to client-settings page when the user has already logged in with owner permission
-  redirectToClientSettings(to.path);
-
-  // Refresh search navigation not to keep previous conditions
-  clearSelectCondition(to, from);
-
-  // ブラウザのバックボタン対応、観察画面からユーザ一覧に行った場合は観察画面を消す
-  if (
-    from.name === "user" &&
-    (to.name === "attribute" || to.name === "overview" || to.name === "memo")
-  ) {
-    store.commit("user/setShowUserDetail", false);
-  }
-
-  if (store.state.auth.isAuthenticated) {
-    // ログイン済みで、ログインページを開こうとした場合はホーム
-    if (to.name === "login") {
-      next({ name: "home" });
-      return;
-    }
-    next();
+if (store.state.auth.isAuthenticated) {
+  if (to.name === "login") {
+    next({ name: "home" });
     return;
   }
-
-  if (store.state.auth.isInitialized) {
-    if (to.matched.some(record => record.meta.allowPublicAccess)) {
-      next();
-      return;
-    }
+  next();
+  return;
+} else if (to.meta && to.meta.allowPublicAccess) {
+  next();
+  return;
+} else {
+  if (to.name !== "login" && to.name !== "home") {
+    next({ name: "login", query: { redirect: to.fullPath } });
+  } else {
     next({ name: "login" });
-    return;
   }
-
-  try {
-    await store.dispatch("auth/initialize");
-
-    // Redirect to client-settings page when the user tried to login and the user has owner permission
-    redirectToClientSettings(to.path);
-
-    const loginUser: LoginUser | null = store.state.auth.user;
-    if (loginUser) {
-      if (
-        to.path.startsWith("/user-trend") &&
-        !loginUser.permission.isAvailableUserTrend
-      ) {
-        next({ name: "home" });
-        return;
-      }
-
-      if (to.name === "users" && !loginUser.permission.isAvailableUserList) {
-        next({ name: "home" });
-        return;
-      }
-
-      if (
-        to.name == "funnel-analysis" ||
-        to.name == "funnel-analysis-create" ||
-        to.name == "funnel-analysis-detail"
-      ) {
-        const loginClient: Client | null = store.state.client.client;
-        if (
-          !(
-            loginUser.permission.isAvailableUserList &&
-            loginClient != null &&
-            loginClient.hasFunnelAnalysisContract
-          )
-        ) {
-          next({ name: "home" });
-          return;
-        }
-      }
-    }
-
-    if (store.state.auth.isAuthenticated) {
-      if (to.name === "login") {
-        next({ name: "home" });
-        return;
-      }
-      next();
-      return;
-    } else if (to.meta && to.meta.allowPublicAccess) {
-      next();
-      return;
-    } else {
-      if (to.name !== "login" && to.name !== "home") {
-        next({ name: "login", query: { redirect: to.fullPath } });
-      } else {
-        next({ name: "login" });
-      }
-      return;
-    }
-  } catch (e) {
-    showAlert(i18n.t("util.errorUtil.common-error-message") as string);
-  }
-});
-\```
+  return;
+}
+```
 
 </p>
 </details>
+
+<details>
+<summary>rGetVisitsForUserAct.java</summary>
+<p>
+
+```java
+if (jsGram.platform_category == AC.PlatformCategory.WEBSITE.getTypeId()
+    || jsGram.platform_category == AC.PlatformCategory.MOBILE_APP.getTypeId()) {
+
+  jsGram.cv_attrs = parseCvAttr(gram.getConversionAttrs());
+
+    if (jsGram.gram_type == AC.GramType.CV || jsGram.gram_type == AC.GramType.NCV) {
+
+      setCvInfo(gram, jsGram);
+    } else if (jsGram.gram_type == AC.GramType.PV) {
+
+      setPvInfo(gram, jsGram);
+    } else if (jsGram.gram_type == AC.GramType.Event) {
+
+      setEventInfo(gram, jsGram);
+    } else if (jsGram.gram_type == AC.GramType.Launch) {
+
+      setLaunchInfo(gram, jsGram);
+    } else {
+
+      throw new AppException(securityParam.uuid,
+          GAC.ErrorCode.InvalidGramType, "invalid gram_type.[" + gram + "]");
+    }
+  } else if (jsGram.platform_category == AC.PlatformCategory.BE.getTypeId()) {
+
+  setBeInfo(gram, jsGram);
+  } else if (jsGram.platform_category == AC.PlatformCategory.CLDB.getTypeId()) {
+
+  setCldbInfo(gram, jsGram);
+  } else if (jsGram.platform_category == AC.PlatformCategory.CONTACT.getTypeId()) {
+
+  setContactInfo(gram, jsGram);
+  } else if (jsGram.platform_category == AC.PlatformCategory.BIZ_INDEX.getTypeId()) {
+
+  setBizIndexInfo(gram, jsGram);
+  } else {
+
+  throw new AppException(securityParam.uuid,
+      GAC.ErrorCode.InvalidPlatformCategory,
+      "invalid platform_category.[" + gram.toString() + "]");
+  }
 ```
+
+</p>
+</details>
+
 ## Solution
