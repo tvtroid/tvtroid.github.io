@@ -93,17 +93,94 @@ if (jsGram.platform_category == AC.PlatformCategory.WEBSITE.getTypeId()
 
 > Factory Method is a creational design pattern that provides an interface for creating objects in a superclass, but allows subclasses to alter the type of objects that will be created.
 
->> When we encounter decision constructs which end up doing the similar operation in each branch. There is an opporunity to **extract a factory method which returns an object of a given type and performs the operation based on the concrete object behavior**
+**Before**
 
-_Operation.java_
+```java
+public interface FilterCondition {
+}
+```
+
+```java
+public interface FilterFirstTimeCondition implements FilterCondition {
+}
+```
+
+```java
+public interface FilterHourCondition implements FilterCondition {
+}
+```
+
+```java
+public interface FilterPeriodCondition implements FilterCondition {
+}
+```
+
+```java
+public FilterCondition getFilterCodition(TypeEnum type) {
+  if (type == TypeEnum.FirstTime) {
+      return new FilterFirstTimeCondition();
+  } else if (type == TypeEnum.Period) {
+      return new FilterPeriodCondition();
+  } else if (type == TypeEnum.Hour) {
+      return new FilterHourCondition();
+  }
+  // Many other if-else
+}
+```
+
+**After**
+
+```java
+public class FilterConditionFactory {
+  private Map<TypeEnum, Operation> conditionMap = new HashMap<>();
+  public FilterConditionFactory {
+      conditionMap.put(TypeEnum.FirstTime, new FilterFirstTimeCondition());
+      conditionMap.put(TypeEnum.Period, new FilterPeriodCondition());
+      // more operators
+  }
+
+  public FilterCondition getFilterCondition(TypeEnum type) {
+      return conditionMap.get(type);
+  }
+}
+```
+
+```java
+public class Main {
+  public static void main(String[] args) {
+      FilterConditionFactory filterConditionFactory = new FilterConditionFactory();
+      FilterCondition conditionn = filterConditionFactory.getFilterCondition(TypeEnum.period);
+  }
+}
+```
+
+### Strategy + Factory Method pattern
+
+**Before**
+```
+public int calculate(int a, int b, String operator) {
+    if ("add".equals(operator)) {
+        return a + b;
+    } else if ("multiply".equals(operator)) {
+        return a * b;
+    } else if ("divide".equals(operator)) {
+        return a / b;
+    } else if ("subtract".equals(operator)) {
+        return a - b;
+    }
+    return -1;
+}
+```
+
+**After**
+
 ```java
 public interface Operation {
     int apply(int a, int b);
 }
 ```
 
-_Addition.java_
-```
+```java
 public class Addition implements Operation {
     @Override
     public int apply(int a, int b) {
@@ -112,7 +189,6 @@ public class Addition implements Operation {
 }
 ```
 
-_Subtraction.java_
 ```java
 public class Subtraction implements Operation {
     @Override
@@ -122,7 +198,6 @@ public class Subtraction implements Operation {
 }
 ```
 
-_Multiplication.java_
 ```java
 public class Multiplication implements Operation {
     @Override
@@ -132,7 +207,6 @@ public class Multiplication implements Operation {
 }
 ```
 
-_Division.java_
 ```java
 public class Division implements Operation {
     @Override
@@ -142,27 +216,26 @@ public class Division implements Operation {
 }
 ```
 
-_OperatorFactory.java_
-```
+```java
 public class OperatorFactory {
-    static Map<String, Operation> operationMap = new HashMap<>();
-    static {
+    private Map<String, Operation> operationMap = new HashMap<>();
+    public OperatorFactory {
         operationMap.put("add", new Addition());
         operationMap.put("divide", new Division());
         // more operators
     }
 
-    public static Optional<Operation> getOperation(String operator) {
-        return Optional.ofNullable(operationMap.get(operator));
+    public Operation getOperation(String operator) {
+        return operationMap.get(operator);
     }
 }
 ```
 
-```
+```java
 public class Calculator {
-  public int calculateUsingFactory(int a, int b, String operator) {
-      Operation targetOperation = OperatorFactory
-        .getOperation(operator);
+  public int calculateUsingStrategyFactory(int a, int b, String operator) {
+      OperatorFactory operationFactory = new OperatorFactory();
+      Operation targetOperation = operationFactory.getOperation(operator);
       return targetOperation.apply(a, b);
   }
 }
@@ -170,77 +243,28 @@ public class Calculator {
 
 _Main.java_
 ```java
-Calculator calculator = new Calculator();
-calculator.calculateUsingFactory(2, 1, "add"); // => 3
-calculator.calculateUsingFactory(2, 1, "divide"); // => 2
-```
-
-Possible to refactor using Factory pattern:
-- https://github.com/bebit/usergram-front/blob/fbd3bd594864410aae6cf4e516c815533f72fe0a/src/components/filter/ChildFilterNodeAd.vue#L154-L184
-- https://github.com/bebit/usergram-front/blob/fbd3bd594864410aae6cf4e516c815533f72fe0a/src/components/filter/ChildFilterNodeSearchEngine.vue#L115-L133
-
-### Strategy pattern
-
->> The Strategy pattern suggests that you take a class that does something specific in a lot of different ways and extract all of these algorithms into separate classes called strategies.
-
-_Operation.java_
-```java
-public interface Operation {
-    int apply(int a, int b);
+public class Main {
+  public static void main(String[] args) {
+      Calculator calculator = new Calculator();
+      calculator.calculateUsingStrategyFactory(2, 1, "add"); // => 3
+      calculator.calculateUsingStrategyFactory(2, 1, "divide"); // => 2
+  }
 }
-```
-
-_Addition.java_
-```java
-public class Addition implements Operation {
-    @Override
-    public int apply(int a, int b) {
-        return a + b;
-    }
-}
-```
-
-
-_Calculator.java_
-```java
-public class Calculator {
-    private Operation operation; // our strategy
-    
-    void setOperation(Operation operation) {
-        this.operation = operation
-    }
-    
-    public int calculateUsingStrategy(int a, int b) {
-        return this.operation.apply(a, b);
-    }
-}
-```
-
-_Main.java_
-```java
-Calculator calculator = new Calculator();
-
-calculator.setOperation(new Addition());
-calculator.calculateUsingStrategy(2, 1); // => 3
-
-calculator.setOperation(new Subtraction());
-calculator.calculateUsingStrategy(2, 1); // => 1
 ```
 
 ### Command pattern
 We can also design a Calculator#calculateUsingCommand method to accept a command which can be executed on the inputs.
 
-_Command.java_
 ```java
 public interface Command {
     Integer execute();
 }
 ```
 
-_AddCommand.java_
 ```java
 public class AddCommand implements Command {
-    private int a;
+    // Command will hold state
+    private int a; 
     private int b;
 
     public AddCommand(int a, int b) {
@@ -254,7 +278,7 @@ public class AddCommand implements Command {
     }
 }
 ```
-_Calculator.java_
+
 ```java
 public class Calculator {
     public int calculateUsingCommand(Command command) {
@@ -263,14 +287,15 @@ public class Calculator {
 }
 ```
 
-_Main.java_
 ```java
-Calculator calculator = new Calculator();
-
-calculator.calculateUsingCommand(new AddCommand(1, 2)); // => 3
+public class Main {
+  public static void main(String[] args) {
+    Calculator calculator = new Calculator();
+    calculator.calculateUsingCommand(new AddCommand(1, 2)); // => 3
+    calculator.calculateUsingCommand(new DevideCommand(2, 2)); // => 1
+  }
+}
 ```
-
-> The difference between strategy and command is that command holds also state.
 
 ### Rules pattern
 
