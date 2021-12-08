@@ -268,10 +268,11 @@ calculator.calculateUsingStrategy(2, 1, "divide"); // => 2
 
 ### Rules pattern
 
->> When we end up writing a large number of nested if statements, each of the conditions depicts a business rule which has to be evaluated for the correct logic to be processed.
+>> When we end up writing a large number of nested if statements, each of the conditions is a business rule which has to be evaluated for the correct logic to be processed. A rule engine takes such complexity out of the main code.
 
 **Before**
 ```java
+// Calculate membership points based on type of the member and how much they spent
 public int calculate(int spent, String type) {
   if(spent > 120){ 
     if("GOLD".equals(type)){ 
@@ -293,47 +294,47 @@ public int calculate(int spent, String type) {
 
 **After**
 
-_Calculator.java_
+_Rule.java_
 ```java
-public interface Calculator {
-    int calculate(int spent);
-    boolean matches(int spent, String type);
+public interface Rule {
+    int getResult(int spent);
+    boolean evaluate(int spent, String type);
 }
 ```
 
-_HighSpentGoldCalculator.java_
+_HighSpentGoldRule.java_
 ```java
-public class HighSpentGoldCalculator implements Calculator {
+public class HighSpentGoldRule implements Rule {
     @Override
-    public int calculate(int spent) {
+    public int getResult(int spent) {
         return spent * 4;
     }
     
     @Override
-    public boolean matches(int spent, String type) {
+    public boolean evaluate(int spent, String type) {
         return spent > 120 && "GOLD".equals(type);
     }
 }
 ```
 
-_HighSpentNonGoldCalculator.java_
+_HighSpentNonGoldRule.java_
 ```java
-public class HighSpentNonGoldCalculator implements Calculator {
+public class HighSpentNonGoldRule implements Rule {
     @Override
-    public int calculate(int spent) {
+    public int getResult(int spent) {
         return spent * 3;
     }
     
     @Override
-    public boolean matches(int spent, String type) {
+    public boolean evaluate(int spent, String type) {
         return spent > 120 && !"GOLD".equals(type);
     }
 }
 ```
 
-_MediumSpentCalculator.java_
+_MediumSpentRule.java_
 ```java
-public class MediumSpentCalculator implements Calculator {
+public class MediumSpentRule implements Rule {
     @Override
     public int calculate(int spent) {
         return spent * 2;
@@ -346,40 +347,43 @@ public class MediumSpentCalculator implements Calculator {
 }
 ```
 
-_LowSpentSilverCalculator.java_
+_LowSpentSilverRule.java_
 ```java
-public class LowSpentSilverCalculator implements Calculator {
+public class LowSpentSilverRule implements Rule {
     @Override
-    public int calculate(int spent) {
+    public int getResult(int spent) {
         return 50;
     }
     
     @Override
-    public boolean matches(int spent, String type) {
+    public boolean evaluate(int spent, String type) {
         return spent <= 50 && "SILVER".equals(type);
     }
 }
 ```
 
-_LowSpentNonSilverCalculator.java_
+_LowSpentNonSilverRule.java_
 ```java
-public class LowSpentNonSilverCalculator implements Calculator {
+public class LowSpentNonSilverRule implements Rule {
     @Override
-    public int calculate(int spent) {
+    public int getResult(int spent) {
         return spent;
     }
     
     @Override
-    public boolean matches(int spent, String type) {
+    public boolean evaluate(int spent, String type) {
         return spent <= 50 && !"SILVER".equals(type);
     }
 }
 ```
 
-_PointCalculator.java_
+_Calculator.java_
 ```java
-public class PointCalculator {
-  static List<Calculator> calculators = new ArrayList();
+public class Calculator {
+  // A variable holds all the exsiting rules
+  static List<Rule> rules = new ArrayList();
+  
+  // Innit all the rules
   static {
       calculators.add(new HighSpentGoldCalculator());
       calculators.add(new HighSpentNonGoldCalculator());
@@ -387,10 +391,11 @@ public class PointCalculator {
       // more calculators
   }
   
+  // I am using normal for loop to be easy to understand for other developers who are not familiar with Java. Java Stream is better here!
   public static int calculate(int spent, String type) {
-      for(Calculator calculator : calculators){ 
-        if(calculator.matches(spent, type)){ 
-          return calculator.calculate(spent); 
+      for(Rule rule : rules){ 
+        if(rule.evaluate(spent, type)){ 
+          return rule.getResult(spent); 
         } 
       }
   }
