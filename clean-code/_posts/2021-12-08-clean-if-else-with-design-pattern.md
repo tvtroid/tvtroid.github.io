@@ -48,7 +48,7 @@ if (store.state.auth.isAuthenticated) {
 </details>
 
 <details>
-<summary>rGetVisitsForUserAct.java</summary>
+<summary>GetVisitsForUserAct.java</summary>
 <p>
 
 ```java
