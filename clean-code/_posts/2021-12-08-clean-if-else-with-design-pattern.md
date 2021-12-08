@@ -156,64 +156,6 @@ public class Addition implements Operation {
 }
 ```
 
-_OperatorFactory.java_
-```
-public class OperatorFactory {
-    static Map<String, Operation> operationMap = new HashMap<>();
-    static {
-        operationMap.put("add", new Addition());
-        operationMap.put("divide", new Division());
-        // more operators
-    }
-
-    public static Optional<Operation> getOperation(String operator) {
-        return Optional.ofNullable(operationMap.get(operator));
-    }
-}
-```
-
-```
-public class Calculator {
-  public int calculateUsingFactory(int a, int b, String operator) {
-      Operation targetOperation = OperatorFactory
-        .getOperation(operator);
-      return targetOperation.apply(a, b);
-  }
-}
-```
-
-_Main.java_
-```java
-Calculator calculator = new Calculator();
-calculator.calculateUsingFactory(2, 1, "add"); // => 3
-calculator.calculateUsingStrategy(2, 1, "divide"); // => 2
-```
-
-Possible to refactor using Factory pattern:
-- https://github.com/bebit/usergram-front/blob/fbd3bd594864410aae6cf4e516c815533f72fe0a/src/components/filter/ChildFilterNodeAd.vue#L154-L184
-- https://github.com/bebit/usergram-front/blob/fbd3bd594864410aae6cf4e516c815533f72fe0a/src/components/filter/ChildFilterNodeSearchEngine.vue#L115-L133
-
-### Strategy pattern
-
->> The Strategy pattern suggests that you take a class that does something specific in a lot of different ways and extract all of these algorithms into separate classes called strategies.
-
-_Operation.java_
-```java
-public interface Operation {
-    int apply(int a, int b);
-}
-```
-
-_Addition.java_
-```java
-public class Addition implements Operation {
-    @Override
-    public int apply(int a, int b) {
-        return a + b;
-    }
-}
-```
-
 _Subtraction.java_
 ```java
 public class Subtraction implements Operation {
@@ -244,6 +186,65 @@ public class Division implements Operation {
 }
 ```
 
+_OperatorFactory.java_
+```
+public class OperatorFactory {
+    static Map<String, Operation> operationMap = new HashMap<>();
+    static {
+        operationMap.put("add", new Addition());
+        operationMap.put("divide", new Division());
+        // more operators
+    }
+
+    public static Optional<Operation> getOperation(String operator) {
+        return Optional.ofNullable(operationMap.get(operator));
+    }
+}
+```
+
+```
+public class Calculator {
+  public int calculateUsingFactory(int a, int b, String operator) {
+      Operation targetOperation = OperatorFactory
+        .getOperation(operator);
+      return targetOperation.apply(a, b);
+  }
+}
+```
+
+_Main.java_
+```java
+Calculator calculator = new Calculator();
+calculator.calculateUsingFactory(2, 1, "add"); // => 3
+calculator.calculateUsingFactory(2, 1, "divide"); // => 2
+```
+
+Possible to refactor using Factory pattern:
+- https://github.com/bebit/usergram-front/blob/fbd3bd594864410aae6cf4e516c815533f72fe0a/src/components/filter/ChildFilterNodeAd.vue#L154-L184
+- https://github.com/bebit/usergram-front/blob/fbd3bd594864410aae6cf4e516c815533f72fe0a/src/components/filter/ChildFilterNodeSearchEngine.vue#L115-L133
+
+### Strategy pattern
+
+>> The Strategy pattern suggests that you take a class that does something specific in a lot of different ways and extract all of these algorithms into separate classes called strategies.
+
+_Operation.java_
+```java
+public interface Operation {
+    int apply(int a, int b);
+}
+```
+
+_Addition.java_
+```java
+public class Addition implements Operation {
+    @Override
+    public int apply(int a, int b) {
+        return a + b;
+    }
+}
+```
+
+
 _Calculator.java_
 ```java
 public class Calculator {
@@ -268,6 +269,49 @@ calculator.calculateUsingStrategy(2, 1); // => 3
 
 calculator.setOperation(new Subtraction());
 calculator.calculateUsingStrategy(2, 1); // => 1
+```
+
+### Command pattern
+We can also design a Calculator#calculateUsingCommand method to accept a command which can be executed on the inputs.
+
+_Command.java_
+```java
+public interface Command {
+    Integer execute();
+}
+```
+
+_AddCommand.java_
+```java
+public class AddCommand implements Command {
+    private int a;
+    private int b;
+
+    public AddCommand(int a, int b) {
+        this.a = a;
+        this.b = b;
+    }
+
+    @Override
+    public Integer execute() {
+        return a + b;
+    }
+}
+```
+_Calculator.java_
+```java
+public class Calculator {
+    public int calculateUsingCommand(command Command) {
+        return command.execute();
+    }
+}
+```
+
+_Main.java_
+```java
+Calculator calculator = new Calculator();
+
+calculator.calculateUsingCommand(new AddCommand(1, 2)); // => 3
 ```
 
 ### Rules pattern
@@ -302,7 +346,7 @@ _Rule.java_
 ```java
 public interface Rule {
     int getResult(int spent);
-    boolean evaluate(int spent, String type);
+    boolean isApplicable(int spent, String type);
 }
 ```
 
@@ -315,7 +359,7 @@ public class HighSpentGoldRule implements Rule {
     }
     
     @Override
-    public boolean evaluate(int spent, String type) {
+    public boolean isApplicable(int spent, String type) {
         return spent > 120 && "GOLD".equals(type);
     }
 }
@@ -330,7 +374,7 @@ public class HighSpentNonGoldRule implements Rule {
     }
     
     @Override
-    public boolean evaluate(int spent, String type) {
+    public boolean isApplicable(int spent, String type) {
         return spent > 120 && !"GOLD".equals(type);
     }
 }
@@ -340,12 +384,12 @@ _MediumSpentRule.java_
 ```java
 public class MediumSpentRule implements Rule {
     @Override
-    public int calculate(int spent) {
+    public int getResult(int spent) {
         return spent * 2;
     }
     
     @Override
-    public boolean matches(int spent, String type) {
+    public boolean isApplicable(int spent, String type) {
         return spent <= 120 && spent > 50;
     }
 }
@@ -360,7 +404,7 @@ public class LowSpentSilverRule implements Rule {
     }
     
     @Override
-    public boolean evaluate(int spent, String type) {
+    public boolean isApplicable(int spent, String type) {
         return spent <= 50 && "SILVER".equals(type);
     }
 }
@@ -375,7 +419,7 @@ public class LowSpentNonSilverRule implements Rule {
     }
     
     @Override
-    public boolean evaluate(int spent, String type) {
+    public boolean isApplicable(int spent, String type) {
         return spent <= 50 && !"SILVER".equals(type);
     }
 }
@@ -397,7 +441,7 @@ public class Calculator {
   
   public static int calculate(int spent, String type) {
       for(Rule rule : rules){ 
-        if(rule.evaluate(spent, type)){ 
+        if(rule.isApplicable(spent, type)){ 
           return rule.getResult(spent); 
         } 
       }
