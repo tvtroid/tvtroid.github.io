@@ -157,6 +157,8 @@ public class Main {
 
 ### Strategy + Factory Method pattern
 
+>> Strategy is a behavioral design pattern that lets you define a family of algorithms, put each of them into a separate class, and make their objects interchangeable.
+
 **Before**
 ```
 public int calculate(int a, int b, String operator) {
@@ -255,27 +257,29 @@ public class Main {
 ```
 
 ### Command pattern
-We can also design a Calculator#calculateUsingCommand method to accept a command which can be executed on the inputs.
+
+>> Command is a behavioral design pattern that turns a request into a stand-alone object that contains all information about the request. This transformation lets you pass requests as a method arguments, delay or queue a request’s execution, and support undoable operations.
 
 ```java
 public interface Command {
-    Integer execute();
+    int execute();
 }
 ```
 
 ```java
 public class AddCommand implements Command {
     // Command will hold state
-    private int a; 
-    private int b;
+    private Main mainState;
 
-    public AddCommand(int a, int b) {
+    public AddCommand(Main mainState, int a, int b) {
+        this.mainState = mainState;
         this.a = a;
         this.b = b;
     }
 
     @Override
-    public Integer execute() {
+    public int execute() {
+        mainState.saveHistory("AddCommand");
         return a + b;
     }
 }
@@ -291,13 +295,21 @@ public class Calculator {
 
 ```java
 public class Main {
+  private String latestCommand = "";
+  
   public static void main(String[] args) {
     Calculator calculator = new Calculator();
-    calculator.calculateUsingCommand(new AddCommand(1, 2)); // => 3
-    calculator.calculateUsingCommand(new DevideCommand(2, 2)); // => 1
+    calculator.calculateUsingCommand(this, new AddCommand(1, 2)); // => 3, latestCommand = "AddCommand"
+    calculator.calculateUsingCommand(this, new DevideCommand(2, 2)); // => 1, latestCommand = "DevideCommand"
+  }
+  
+  public void saveHistory(String commandName) {
+      latestCommand = commandName;
   }
 }
 ```
+
+>>> Use Command pattern when you want to pass the state between the commands
 
 ### Rules pattern
 
@@ -327,7 +339,6 @@ public int calculate(int spent, String type) {
 
 **After**
 
-_Rule.java_
 ```java
 public interface Rule {
     int getResult(int spent);
@@ -335,7 +346,6 @@ public interface Rule {
 }
 ```
 
-_HighSpentGoldRule.java_
 ```java
 public class HighSpentGoldRule implements Rule {
     @Override
@@ -350,7 +360,6 @@ public class HighSpentGoldRule implements Rule {
 }
 ```
 
-_HighSpentNonGoldRule.java_
 ```java
 public class HighSpentNonGoldRule implements Rule {
     @Override
@@ -365,7 +374,6 @@ public class HighSpentNonGoldRule implements Rule {
 }
 ```
 
-_MediumSpentRule.java_
 ```java
 public class MediumSpentRule implements Rule {
     @Override
@@ -380,7 +388,6 @@ public class MediumSpentRule implements Rule {
 }
 ```
 
-_LowSpentSilverRule.java_
 ```java
 public class LowSpentSilverRule implements Rule {
     @Override
@@ -395,7 +402,6 @@ public class LowSpentSilverRule implements Rule {
 }
 ```
 
-_LowSpentNonSilverRule.java_
 ```java
 public class LowSpentNonSilverRule implements Rule {
     @Override
@@ -410,13 +416,10 @@ public class LowSpentNonSilverRule implements Rule {
 }
 ```
 
-_Calculator.java_
 ```java
 public class Calculator {
-  // A variable holds all the exsiting rules
   static List<Rule> rules = new ArrayList();
   
-  // Innit all the rules
   static {
       calculators.add(new HighSpentGoldRule());
       calculators.add(new HighSpentNonGoldRule());
@@ -434,13 +437,68 @@ public class Calculator {
 }
 ```
 
-_Main.java_
-
 ```java
 PointCalculator.calculate(130, "SILVER"); // => 130 * 4
 PointCalculator.calculate(51, "GOLD"); // => 130 * 2
 ```
 
-## Command pattern
+## Chain of Responsibility pattern
 
+**After**
 
+```
+public abstract class Link {
+    private Link nextLink;
+
+    public void setNextLink(Link next) {
+        nextLink = next;
+    }
+
+    public virtual int execute(int spent, String type) {
+        if (nextLink != null) {
+            return nextLink.execute(spent);
+        }
+        return spent;
+    }
+}
+```
+
+_HighSpentGoldRule.java_
+```java
+public class HighSpentGoldLink extends Link {
+    @Override
+    public int execute(int spent, String type) {
+        if (spent > 120 && "GOLD".equals(type)) {
+          return spent * 4;
+        }
+        return base.execute(spent, type);
+    }
+}
+```
+
+```java
+public class HighSpentNonGoldLink extends Link {
+    @Override
+    public int execute(int spent, String type) {
+      if (spent > 120 && !"GOLD".equals(type)) {
+        return spent * 3;
+      }
+      return base.execute(spent, type);
+    }
+}
+```
+
+```java
+public class Main {
+  public static void main(String[] args) {
+      Link chain = new HighSpentGoldLink();
+      Link secondLink = new HighSpentNonGoldLink();
+      // other links
+      
+      chain.setNextLink(secondLink);
+      // other links
+      
+      chain.execute(130, "SILVER"); // => 130 * 4
+  }
+}
+```
