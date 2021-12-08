@@ -392,7 +392,7 @@ public class Calculator {
       calculators.add(new HighSpentGoldRule());
       calculators.add(new HighSpentNonGoldRule());
       calculators.add(new MediumSpentRule());
-      // more calculators
+      // more rules
   }
   
   public static int calculate(int spent, String type) {
