@@ -19,9 +19,7 @@ Nested if statements make our code more complex and difficult to maintain
 
 ## Examples
 
-<details>
-<summary>router.ts</summary>
-<p>
+
 
 ```ts
 if (store.state.auth.isAuthenticated) {
@@ -44,12 +42,8 @@ if (store.state.auth.isAuthenticated) {
 }
 ```
 
-</p>
-</details>
-
 <details>
 <summary>GetVisitsForUserAct.java</summary>
-<p>
 
 ```java
 if (jsGram.platform_category == AC.PlatformCategory.WEBSITE.getTypeId()
@@ -94,7 +88,6 @@ if (jsGram.platform_category == AC.PlatformCategory.WEBSITE.getTypeId()
   }
 ```
 
-</p>
 </details>
 
 ## Solution
