@@ -212,7 +212,8 @@ calculator.calculateUsingStrategy(2, 1); // => 1
 
 ### Factory method pattern
 
->> Factory Method is a creational design pattern that provides an interface for creating objects in a superclass, but allows subclasses to alter the type of objects that will be created.
+> Factory Method is a creational design pattern that provides an interface for creating objects in a superclass, but allows subclasses to alter the type of objects that will be created.
+
 >> When we encounter decision constructs which end up doing the similar operation in each branch. There is an opporunity to **extract a factory method which returns an object of a given type and performs the operation based on the concrete object behavior**
 
 _Operation.java_
@@ -265,7 +266,9 @@ calculator.calculateUsingFactory(2, 1, "add"); // => 3
 calculator.calculateUsingStrategy(2, 1, "divide"); // => 2
 ```
 
-### Strategy + Factory pattern
+### Rules pattern
+
+>> When we end up writing a large number of nested if statements, each of the conditions depicts a business rule which has to be evaluated for the correct logic to be processed.
 
 **Before**
 ```java
