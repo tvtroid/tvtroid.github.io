@@ -162,7 +162,7 @@ public int calculate(int spent, String type) {
 _Calculator.java_
 ```java
 public interface Calculator {
-    int calculate(int spent, String type);
+    int calculate(int spent);
     boolean matches(int spent, String type);
 }
 ```
@@ -252,25 +252,19 @@ public class PointCalculator {
       calculators.add(new MediumSpentCalculator());
       // more calculators
   }
+  
+  public static int calculate(int spent, String type) {
+      for(Calculator calculator : calculators){ 
+        if(calculator.matches(spent, type)){ 
+          return calculator.calculate(spent); 
+        } 
+      }
+  }
 }
 ```
 
+_Main.java_
+
 ```java
-public int calculate(int spent, String type) {
-  if(spent > 120){ 
-    if("GOLD".equals(type)){ 
-      return spent * 4; 
-    } else { 
-      return spent * 3; 
-    } 
-  } else if(spent > 50){ 
-    return spent * 2; 
-  } else if("SILVER".equals(type)){ 
-    return 50; 
-  } 
-  // many more else if 
-  else{ 
-    return spent; 
-  }
-}
+int result = PointCalculator.calculate(130, "SILVER");
 ```
