@@ -136,7 +136,8 @@ public class FilterConditionFactory {
   public FilterConditionFactory {
       conditionMap.put(TypeEnum.FirstTime, new FilterFirstTimeCondition());
       conditionMap.put(TypeEnum.Period, new FilterPeriodCondition());
-      // more operators
+      conditionMap.put(TypeEnum.Hour, new FilterHourCondition());
+      // more 
   }
 
   public FilterCondition getFilterCondition(TypeEnum type) {
