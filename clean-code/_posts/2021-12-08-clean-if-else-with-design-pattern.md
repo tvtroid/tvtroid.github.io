@@ -136,3 +136,141 @@ public int calculateUsingSwitch(int a, int b, String operator) {
 ### Strategy pattern
 
 >> The Strategy pattern suggests that you take a class that does something specific in a lot of different ways and extract all of these algorithms into separate classes called strategies.
+
+**Before**
+```java
+public int calculate(int spent, String type) {
+  if(spent > 120){ 
+    if("GOLD".equals(type)){ 
+      return spent * 4; 
+    } else { 
+      return spent * 3; 
+    } 
+  } else if(spent > 50){ 
+    return spent * 2; 
+  } else if("SILVER".equals(type)){ 
+    return 50; 
+  } 
+  // many more else if 
+  else{ 
+    return spent; 
+  }
+}
+```
+
+**After**
+_Calculator.java_
+```java
+public interface Calculator {
+    int calculate(int spent, String type);
+    boolean matches(int spent, String type);
+}
+```
+
+_HighSpentGoldCalculator.java_
+```java
+public class HighSpentGoldCalculator implements Calculator {
+    @Override
+    public int calculate(int spent) {
+        return spent * 4;
+    }
+    
+    @Override
+    public boolean matches(int spent, String type) {
+        return spent > 120 && "GOLD".equals(type);
+    }
+}
+```
+
+_HighSpentNonGoldCalculator.java_
+```java
+public class HighSpentNonGoldCalculator implements Calculator {
+    @Override
+    public int calculate(int spent) {
+        return spent * 3;
+    }
+    
+    @Override
+    public boolean matches(int spent, String type) {
+        return spent > 120 && !"GOLD".equals(type);
+    }
+}
+```
+
+_MediumSpentCalculator.java_
+```java
+public class MediumSpentCalculator implements Calculator {
+    @Override
+    public int calculate(int spent) {
+        return spent * 2;
+    }
+    
+    @Override
+    public boolean matches(int spent, String type) {
+        return spent <= 120 && spent > 50;
+    }
+}
+```
+
+_LowSpentSilverCalculator.java_
+```java
+public class LowSpentSilverCalculator implements Calculator {
+    @Override
+    public int calculate(int spent) {
+        return 50;
+    }
+    
+    @Override
+    public boolean matches(int spent, String type) {
+        return spent <= 50 && "SILVER".equals(type);
+    }
+}
+```
+
+_LowSpentNonSilverCalculator.java_
+```java
+public class LowSpentNonSilverCalculator implements Calculator {
+    @Override
+    public int calculate(int spent) {
+        return spent;
+    }
+    
+    @Override
+    public boolean matches(int spent, String type) {
+        return spent <= 50 && !"SILVER".equals(type);
+    }
+}
+```
+
+_PointCalculator.java_
+```java
+public class PointCalculator {
+  static List<Calculator> calculators = new ArrayList();
+  static {
+      calculators.add(new HighSpentGoldCalculator());
+      calculators.add(new HighSpentNonGoldCalculator());
+      calculators.add(new MediumSpentCalculator());
+      // more calculators
+  }
+}
+```
+
+```java
+public int calculate(int spent, String type) {
+  if(spent > 120){ 
+    if("GOLD".equals(type)){ 
+      return spent * 4; 
+    } else { 
+      return spent * 3; 
+    } 
+  } else if(spent > 50){ 
+    return spent * 2; 
+  } else if("SILVER".equals(type)){ 
+    return 50; 
+  } 
+  // many more else if 
+  else{ 
+    return spent; 
+  }
+}
+```
