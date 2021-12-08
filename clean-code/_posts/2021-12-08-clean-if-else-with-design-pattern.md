@@ -131,6 +131,8 @@ public int calculateUsingSwitch(int a, int b, String operator) {
     return result;
 }
 ```
-_The switch statements do not fit well when there are complex conditions_
+>> The switch statements do not fit well when there are complex conditions
 
 ### Strategy pattern
+
+>> The Strategy pattern suggests that you take a class that does something specific in a lot of different ways and extract all of these algorithms into separate classes called strategies.
