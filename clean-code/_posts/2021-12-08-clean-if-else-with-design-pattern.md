@@ -137,6 +137,152 @@ public int calculateUsingSwitch(int a, int b, String operator) {
 
 >> The Strategy pattern suggests that you take a class that does something specific in a lot of different ways and extract all of these algorithms into separate classes called strategies.
 
+_Operation.java_
+```java
+public interface Operation {
+    int apply(int a, int b);
+}
+```
+
+_Addition.java_
+```java
+public class Addition implements Operation {
+    @Override
+    public int apply(int a, int b) {
+        return a + b;
+    }
+}
+```
+
+_Subtraction.java_
+```java
+public class Subtraction implements Operation {
+    @Override
+    public int apply(int a, int b) {
+        return a - b;
+    }
+}
+```
+
+_Multiplication.java_
+```java
+public class Multiplication implements Operation {
+    @Override
+    public int apply(int a, int b) {
+        return a * b;
+    }
+}
+```
+
+_Division.java_
+```java
+public class Division implements Operation {
+    @Override
+    public int apply(int a, int b) {
+        return a / b;
+    }
+}
+```
+
+_Calculator.java_
+```java
+public class Calculator {
+    private Operation operation; // our strategy
+    
+    void setOperation(Operation operation) {
+        this.operation = operation
+    }
+    
+    public int calculateUsingStrategy(int a, int b) {
+        return this.operation.apply();
+    }
+}
+```
+
+_Main.java_
+```java
+Calculator calculator = new Calculator();
+
+calculator.setOperation(new Addition());
+calculator.calculateUsingStrategy(2, 1); // => 3
+
+calculator.setOperation(new Subtraction());
+calculator.calculateUsingStrategy(2, 1); // => 1
+```
+
+### Factory method pattern
+
+>> Factory Method is a creational design pattern that provides an interface for creating objects in a superclass, but allows subclasses to alter the type of objects that will be created.
+
+_Operation.java_
+```java
+public interface Operation {
+    int apply(int a, int b);
+}
+```
+
+_Addition.java_
+```
+public class Addition implements Operation {
+    @Override
+    public int apply(int a, int b) {
+        return a + b;
+    }
+}
+```
+
+_OperatorFactory.java_
+```
+public class OperatorFactory {
+    static Map<String, Operation> operationMap = new HashMap<>();
+    static {
+        operationMap.put("add", new Addition());
+        operationMap.put("divide", new Division());
+        // more operators
+    }
+
+    public static Optional<Operation> getOperation(String operator) {
+        return Optional.ofNullable(operationMap.get(operator));
+    }
+}
+```
+
+_OperatorFactory.java_
+```
+public class OperatorFactory {
+    static Map<String, Operation> operationMap = new HashMap<>();
+    static {
+        operationMap.put("add", new Addition());
+        operationMap.put("divide", new Division());
+        // more operators
+    }
+
+    public static Optional<Operation> getOperation(String operator) {
+        return Optional.ofNullable(operationMap.get(operator));
+    }
+}
+```
+
+```
+public class Calculator {
+  public int calculateUsingFactory(int a, int b, String operator) {
+      Operation targetOperation = OperatorFactory
+        .getOperation(operator)
+        .orElseThrow(() -> new IllegalArgumentException("Invalid Operator"));
+      return targetOperation.apply(a, b);
+  }
+}
+```
+
+_Main.java_
+```java
+Calculator calculator = new Calculator();
+calculator.calculateUsingFactory(2, 1, "add"); // => 3
+calculator.calculateUsingStrategy(2, 1, "divide"); // => 2
+```
+
+### Strategy + Factory pattern
+
 **Before**
 ```java
 public int calculate(int spent, String type) {
@@ -159,6 +305,7 @@ public int calculate(int spent, String type) {
 ```
 
 **After**
+
 _Calculator.java_
 ```java
 public interface Calculator {
@@ -266,5 +413,6 @@ public class PointCalculator {
 _Main.java_
 
 ```java
-int result = PointCalculator.calculate(130, "SILVER");
+PointCalculator.calculate(130, "SILVER"); // => 130 * 4
+PointCalculator.calculate(51, "GOLD"); // => 130 * 2
 ```
