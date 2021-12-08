@@ -89,50 +89,6 @@ if (jsGram.platform_category == AC.PlatformCategory.WEBSITE.getTypeId()
 
 ## Refactoring
 
-### Switch statements
-
-**Before**
-```java
-public int calculate(int a, int b, String operator) {
-    int result = Integer.MIN_VALUE;
-
-    if ("add".equals(operator)) {
-        result = a + b;
-    } else if ("multiply".equals(operator)) {
-        result = a * b;
-    } else if ("divide".equals(operator)) {
-        result = a / b;
-    } else if ("subtract".equals(operator)) {
-        result = a - b;
-    }
-    return result;
-}
-```
-
-**After**
-```java
-public int calculateUsingSwitch(int a, int b, String operator) {
-    int result = Integer.MIN_VALUE;
-    
-    switch (operator) {
-      case "add":
-          result = a + b;
-          break;
-      case "multiply":
-          result = a * b;
-          break;
-      case "divide":
-          result = a / b;
-          break;
-      case "subtract":
-          result = a - b;
-          break;
-    }
-    return result;
-}
-```
->> The switch statements do not fit well when there are complex conditions
-
 ### Factory method pattern
 
 > Factory Method is a creational design pattern that provides an interface for creating objects in a superclass, but allows subclasses to alter the type of objects that will be created.
