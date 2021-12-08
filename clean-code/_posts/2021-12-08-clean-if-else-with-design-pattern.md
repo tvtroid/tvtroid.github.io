@@ -175,13 +175,13 @@ public int calculate(int a, int b, String operator) {
 **After**
 
 ```java
-public interface Operation {
+public interface Strategy {
     int apply(int a, int b);
 }
 ```
 
 ```java
-public class Addition implements Operation {
+public class Addition implements Strategy {
     @Override
     public int apply(int a, int b) {
         return a + b;
@@ -190,7 +190,7 @@ public class Addition implements Operation {
 ```
 
 ```java
-public class Subtraction implements Operation {
+public class Subtraction implements Strategy {
     @Override
     public int apply(int a, int b) {
         return a - b;
@@ -199,7 +199,7 @@ public class Subtraction implements Operation {
 ```
 
 ```java
-public class Multiplication implements Operation {
+public class Multiplication implements Strategy {
     @Override
     public int apply(int a, int b) {
         return a * b;
@@ -208,7 +208,7 @@ public class Multiplication implements Operation {
 ```
 
 ```java
-public class Division implements Operation {
+public class Division implements Strategy {
     @Override
     public int apply(int a, int b) {
         return a / b;
@@ -217,16 +217,17 @@ public class Division implements Operation {
 ```
 
 ```java
-public class OperatorFactory {
-    private Map<String, Operation> operationMap = new HashMap<>();
-    public OperatorFactory {
-        operationMap.put("add", new Addition());
-        operationMap.put("divide", new Division());
-        // more operators
+public class StrategyFactory {
+    private Map<String, Strategy> strategyMap = new HashMap<>();
+    public StrategyFactory {
+        strategyMap.put("add", new Addition());
+        strategyMap.put("subtract", new Subtraction());
+        strategyMap.put("multiply", new Multiplication());
+        strategyMap.put("divide", new Division());
     }
 
-    public Operation getOperation(String operator) {
-        return operationMap.get(operator);
+    public Strategy getStrategy(String operator) {
+        return strategyMap.get(operator);
     }
 }
 ```
@@ -234,9 +235,9 @@ public class OperatorFactory {
 ```java
 public class Calculator {
   public int calculateUsingStrategyFactory(int a, int b, String operator) {
-      OperatorFactory operationFactory = new OperatorFactory();
-      Operation targetOperation = operationFactory.getOperation(operator);
-      return targetOperation.apply(a, b);
+      StrategyFactory factory = new StrategyFactory();
+      Strategy targetStrategy = factory.getStrategy(operator);
+      return targetStrategy.apply(a, b);
   }
 }
 ```
