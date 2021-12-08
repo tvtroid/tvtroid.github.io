@@ -19,7 +19,7 @@ Nested if statements make our code more complex and difficult to maintain
 
 ## Examples
 
-
+**router.ts**
 
 ```ts
 if (store.state.auth.isAuthenticated) {
@@ -42,8 +42,7 @@ if (store.state.auth.isAuthenticated) {
 }
 ```
 
-<details>
-<summary>GetVisitsForUserAct.java</summary>
+**GetVisitsForUserAct.java**
 
 ```java
 if (jsGram.platform_category == AC.PlatformCategory.WEBSITE.getTypeId()
@@ -88,6 +87,50 @@ if (jsGram.platform_category == AC.PlatformCategory.WEBSITE.getTypeId()
   }
 ```
 
-</details>
+## Refactoring
 
-## Solution
+### Switch statements
+
+**Before**
+```java
+public int calculate(int a, int b, String operator) {
+    int result = Integer.MIN_VALUE;
+
+    if ("add".equals(operator)) {
+        result = a + b;
+    } else if ("multiply".equals(operator)) {
+        result = a * b;
+    } else if ("divide".equals(operator)) {
+        result = a / b;
+    } else if ("subtract".equals(operator)) {
+        result = a - b;
+    }
+    return result;
+}
+```
+
+**After**
+```java
+public int calculateUsingSwitch(int a, int b, String operator) {
+    int result = Integer.MIN_VALUE;
+    
+    switch (operator) {
+      case "add":
+          result = a + b;
+          break;
+      case "multiply":
+          result = a * b;
+          break;
+      case "divide":
+          result = a / b;
+          break;
+      case "subtract":
+          result = a - b;
+          break;
+    }
+    return result;
+}
+```
+_The switch statements do not fit well when there are complex conditions_
+
+### Strategy pattern
