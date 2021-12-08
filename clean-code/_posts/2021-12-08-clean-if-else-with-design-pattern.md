@@ -389,13 +389,12 @@ public class Calculator {
   
   // Innit all the rules
   static {
-      calculators.add(new HighSpentGoldCalculator());
-      calculators.add(new HighSpentNonGoldCalculator());
-      calculators.add(new MediumSpentCalculator());
+      calculators.add(new HighSpentGoldRule());
+      calculators.add(new HighSpentNonGoldRule());
+      calculators.add(new MediumSpentRule());
       // more calculators
   }
   
-  // I am using normal for loop to be easy to understand for other developers who are not familiar with Java. Java Stream is better here!
   public static int calculate(int spent, String type) {
       for(Rule rule : rules){ 
         if(rule.evaluate(spent, type)){ 
