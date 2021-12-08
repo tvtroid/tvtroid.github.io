@@ -194,7 +194,7 @@ public class Calculator {
     }
     
     public int calculateUsingStrategy(int a, int b) {
-        return this.operation.apply();
+        return this.operation.apply(a, b);
     }
 }
 ```
@@ -227,22 +227,6 @@ public class Addition implements Operation {
     @Override
     public int apply(int a, int b) {
         return a + b;
-    }
-}
-```
-
-_OperatorFactory.java_
-```
-public class OperatorFactory {
-    static Map<String, Operation> operationMap = new HashMap<>();
-    static {
-        operationMap.put("add", new Addition());
-        operationMap.put("divide", new Division());
-        // more operators
-    }
-
-    public static Optional<Operation> getOperation(String operator) {
-        return Optional.ofNullable(operationMap.get(operator));
     }
 }
 ```
