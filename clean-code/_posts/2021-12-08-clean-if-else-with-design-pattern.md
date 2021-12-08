@@ -191,6 +191,7 @@ calculator.calculateUsingStrategy(2, 1, "divide"); // => 2
 
 Possible to refactor using Factory pattern:
 - https://github.com/bebit/usergram-front/blob/fbd3bd594864410aae6cf4e516c815533f72fe0a/src/components/filter/ChildFilterNodeAd.vue#L154-L184
+- https://github.com/bebit/usergram-front/blob/fbd3bd594864410aae6cf4e516c815533f72fe0a/src/components/filter/ChildFilterNodeSearchEngine.vue#L115-L133
 
 ### Strategy pattern
 
