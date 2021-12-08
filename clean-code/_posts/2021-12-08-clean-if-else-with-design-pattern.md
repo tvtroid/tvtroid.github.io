@@ -213,6 +213,7 @@ calculator.calculateUsingStrategy(2, 1); // => 1
 ### Factory method pattern
 
 >> Factory Method is a creational design pattern that provides an interface for creating objects in a superclass, but allows subclasses to alter the type of objects that will be created.
+>> When we encounter decision constructs which end up doing the similar operation in each branch. There is an opporunity to **extract a factory method which returns an object of a given type and performs the operation based on the concrete object behavior**
 
 _Operation.java_
 ```java
@@ -251,8 +252,7 @@ public class OperatorFactory {
 public class Calculator {
   public int calculateUsingFactory(int a, int b, String operator) {
       Operation targetOperation = OperatorFactory
-        .getOperation(operator)
-        .orElseThrow(() -> new IllegalArgumentException("Invalid Operator"));
+        .getOperation(operator);
       return targetOperation.apply(a, b);
   }
 }
@@ -400,3 +400,7 @@ _Main.java_
 PointCalculator.calculate(130, "SILVER"); // => 130 * 4
 PointCalculator.calculate(51, "GOLD"); // => 130 * 2
 ```
+
+## Command pattern
+
+
