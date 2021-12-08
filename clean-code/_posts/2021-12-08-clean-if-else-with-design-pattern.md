@@ -132,7 +132,7 @@ public FilterCondition getFilterCodition(TypeEnum type) {
 
 ```java
 public class FilterConditionFactory {
-  private Map<TypeEnum, Operation> conditionMap = new HashMap<>();
+  private Map<TypeEnum, FilterCondition> conditionMap = new HashMap<>();
   public FilterConditionFactory {
       conditionMap.put(TypeEnum.FirstTime, new FilterFirstTimeCondition());
       conditionMap.put(TypeEnum.Period, new FilterPeriodCondition());
