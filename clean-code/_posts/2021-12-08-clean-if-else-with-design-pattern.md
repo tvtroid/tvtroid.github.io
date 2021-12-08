@@ -101,17 +101,17 @@ public interface FilterCondition {
 ```
 
 ```java
-public interface FilterFirstTimeCondition implements FilterCondition {
+public class FilterFirstTimeCondition implements FilterCondition {
 }
 ```
 
 ```java
-public interface FilterHourCondition implements FilterCondition {
+public class FilterHourCondition implements FilterCondition {
 }
 ```
 
 ```java
-public interface FilterPeriodCondition implements FilterCondition {
+public class FilterPeriodCondition implements FilterCondition {
 }
 ```
 
