@@ -257,7 +257,7 @@ public class AddCommand implements Command {
 _Calculator.java_
 ```java
 public class Calculator {
-    public int calculateUsingCommand(command Command) {
+    public int calculateUsingCommand(Command command) {
         return command.execute();
     }
 }
@@ -269,6 +269,8 @@ Calculator calculator = new Calculator();
 
 calculator.calculateUsingCommand(new AddCommand(1, 2)); // => 3
 ```
+
+> The difference between strategy and command is that command holds also state.
 
 ### Rules pattern
 
