@@ -133,6 +133,62 @@ public int calculateUsingSwitch(int a, int b, String operator) {
 ```
 >> The switch statements do not fit well when there are complex conditions
 
+### Factory method pattern
+
+> Factory Method is a creational design pattern that provides an interface for creating objects in a superclass, but allows subclasses to alter the type of objects that will be created.
+
+>> When we encounter decision constructs which end up doing the similar operation in each branch. There is an opporunity to **extract a factory method which returns an object of a given type and performs the operation based on the concrete object behavior**
+
+_Operation.java_
+```java
+public interface Operation {
+    int apply(int a, int b);
+}
+```
+
+_Addition.java_
+```
+public class Addition implements Operation {
+    @Override
+    public int apply(int a, int b) {
+        return a + b;
+    }
+}
+```
+
+_OperatorFactory.java_
+```
+public class OperatorFactory {
+    static Map<String, Operation> operationMap = new HashMap<>();
+    static {
+        operationMap.put("add", new Addition());
+        operationMap.put("divide", new Division());
+        // more operators
+    }
+
+    public static Optional<Operation> getOperation(String operator) {
+        return Optional.ofNullable(operationMap.get(operator));
+    }
+}
+```
+
+```
+public class Calculator {
+  public int calculateUsingFactory(int a, int b, String operator) {
+      Operation targetOperation = OperatorFactory
+        .getOperation(operator);
+      return targetOperation.apply(a, b);
+  }
+}
+```
+
+_Main.java_
+```java
+Calculator calculator = new Calculator();
+calculator.calculateUsingFactory(2, 1, "add"); // => 3
+calculator.calculateUsingStrategy(2, 1, "divide"); // => 2
+```
+
 ### Strategy pattern
 
 >> The Strategy pattern suggests that you take a class that does something specific in a lot of different ways and extract all of these algorithms into separate classes called strategies.
@@ -208,62 +264,6 @@ calculator.calculateUsingStrategy(2, 1); // => 3
 
 calculator.setOperation(new Subtraction());
 calculator.calculateUsingStrategy(2, 1); // => 1
-```
-
-### Factory method pattern
-
-> Factory Method is a creational design pattern that provides an interface for creating objects in a superclass, but allows subclasses to alter the type of objects that will be created.
-
->> When we encounter decision constructs which end up doing the similar operation in each branch. There is an opporunity to **extract a factory method which returns an object of a given type and performs the operation based on the concrete object behavior**
-
-_Operation.java_
-```java
-public interface Operation {
-    int apply(int a, int b);
-}
-```
-
-_Addition.java_
-```
-public class Addition implements Operation {
-    @Override
-    public int apply(int a, int b) {
-        return a + b;
-    }
-}
-```
-
-_OperatorFactory.java_
-```
-public class OperatorFactory {
-    static Map<String, Operation> operationMap = new HashMap<>();
-    static {
-        operationMap.put("add", new Addition());
-        operationMap.put("divide", new Division());
-        // more operators
-    }
-
-    public static Optional<Operation> getOperation(String operator) {
-        return Optional.ofNullable(operationMap.get(operator));
-    }
-}
-```
-
-```
-public class Calculator {
-  public int calculateUsingFactory(int a, int b, String operator) {
-      Operation targetOperation = OperatorFactory
-        .getOperation(operator);
-      return targetOperation.apply(a, b);
-  }
-}
-```
-
-_Main.java_
-```java
-Calculator calculator = new Calculator();
-calculator.calculateUsingFactory(2, 1, "add"); // => 3
-calculator.calculateUsingStrategy(2, 1, "divide"); // => 2
 ```
 
 ### Rules pattern
