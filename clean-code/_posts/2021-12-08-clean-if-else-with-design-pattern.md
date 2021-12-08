@@ -189,6 +189,9 @@ calculator.calculateUsingFactory(2, 1, "add"); // => 3
 calculator.calculateUsingStrategy(2, 1, "divide"); // => 2
 ```
 
+Possible to refactor using Factory pattern:
+- https://github.com/bebit/usergram-front/blob/fbd3bd594864410aae6cf4e516c815533f72fe0a/src/components/filter/ChildFilterNodeAd.vue#L154-L184
+
 ### Strategy pattern
 
 >> The Strategy pattern suggests that you take a class that does something specific in a lot of different ways and extract all of these algorithms into separate classes called strategies.
