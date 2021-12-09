@@ -147,12 +147,8 @@ public class FilterConditionFactory {
 ```
 
 ```java
-public class Main {
-  public static void main(String[] args) {
-      FilterConditionFactory factory = new FilterConditionFactory();
-      FilterCondition condition = factory.getFilterCondition(TypeEnum.period);
-  }
-}
+    FilterConditionFactory factory = new FilterConditionFactory();
+    FilterCondition condition = factory.getFilterCondition(TypeEnum.period);
 ```
 
 ### Strategy + Factory Method pattern
@@ -247,13 +243,9 @@ public class Calculator {
 
 _Main.java_
 ```java
-public class Main {
-  public static void main(String[] args) {
-      Calculator calculator = new Calculator();
-      calculator.calculateUsingStrategyFactory(2, 1, "add"); // => 3
-      calculator.calculateUsingStrategyFactory(2, 1, "divide"); // => 2
-  }
-}
+    Calculator calculator = new Calculator();
+    calculator.calculateUsingStrategyFactory(2, 1, "add"); // => 3
+    calculator.calculateUsingStrategyFactory(2, 1, "divide"); // => 2
 ```
 
 ### Command pattern
@@ -335,13 +327,6 @@ public class Calculator {
 ```java
 public class Main {
     private String lastOperator = "";
-  
-    public static void main(String[] args) {
-        Calculator calculator = new Calculator();
-        Main main = new Main();
-        calculator.calculateUsingCommand(new AddCommand(main, 2, 1)); // => 3
-        System.out.println(main.getLastOperator()); // => add
-    }
     
     public String getLastOperator() {
         return this.lastOperator;
@@ -349,6 +334,13 @@ public class Main {
       
     public void saveLastOperator(String operator) {
         this.lastOperator = operator;
+    }
+    
+    public static void main(String[] args) {
+        Calculator calculator = new Calculator();
+        Main main = new Main();
+        calculator.calculateUsingCommand(new AddCommand(main, 2, 1)); // => 3
+        System.out.println(main.getLastOperator()); // => add
     }
 }
 ```
@@ -533,16 +525,12 @@ public class HighSpentNonGoldLink extends Link {
 ```
 
 ```java
-public class Main {
-  public static void main(String[] args) {
-      Link chain = new HighSpentGoldLink();
-      Link secondLink = new HighSpentNonGoldLink();
-      // other links
-      
-      chain.setNextLink(secondLink);
-      // other links
-      
-      chain.execute(130, "SILVER"); // => 130 * 4
-  }
-}
+Link chain = new HighSpentGoldLink();
+Link secondLink = new HighSpentNonGoldLink();
+// other links
+
+chain.setNextLink(secondLink);
+// other links
+
+chain.execute(130, "SILVER"); // => 130 * 4
 ```
