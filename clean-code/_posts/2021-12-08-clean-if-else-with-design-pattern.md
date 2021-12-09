@@ -500,7 +500,6 @@ public abstract class Link {
 }
 ```
 
-_HighSpentGoldRule.java_
 ```java
 public class HighSpentGoldLink extends Link {
     @Override
