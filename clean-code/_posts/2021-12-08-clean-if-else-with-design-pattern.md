@@ -149,8 +149,8 @@ public class FilterConditionFactory {
 ```java
 public class Main {
   public static void main(String[] args) {
-      FilterConditionFactory filterConditionFactory = new FilterConditionFactory();
-      FilterCondition conditionn = filterConditionFactory.getFilterCondition(TypeEnum.period);
+      FilterConditionFactory factory = new FilterConditionFactory();
+      FilterCondition condition = factory.getFilterCondition(TypeEnum.period);
   }
 }
 ```
@@ -160,7 +160,7 @@ public class Main {
 >> Strategy is a behavioral design pattern that lets you define a family of algorithms, put each of them into a separate class, and make their objects interchangeable.
 
 **Before**
-```
+```java
 public int calculate(int a, int b, String operator) {
     if ("add".equals(operator)) {
         return a + b;
@@ -260,6 +260,45 @@ public class Main {
 
 >> Command is a behavioral design pattern that turns a request into a stand-alone object that contains all information about the request. This transformation lets you pass requests as a method arguments, delay or queue a request’s execution, and support undoable operations.
 
+**Before**
+```java
+public class Main {
+    private String lastOperator = "";
+ 
+    public int calculate(int a, int b, String operator) {
+        if ("add".equals(operator)) {
+          lastOperator = "add";
+          return a + b;
+        } else if ("multiply".equals(operator)) {
+          lastOperator = "multiply";
+          return a * b;
+        } else if ("divide".equals(operator)) {
+          lastOperator = "divide";
+          return a / b;
+        } else if ("subtract".equals(operator)) {
+          lastOperator = "subtract";
+          return a - b;
+        }
+        return -1;
+    }
+  
+    public String getLastOperator() {
+        return this.lastOperator;
+    }
+      
+    public void saveLastOperator(String operator) {
+        this.lastOperator = operator;
+    }
+    
+    public static void main(String[] args) {
+        Main main = new Main();
+        main.calculate(2, 1, "add"); // => 3
+        System.out.println(main.getLastOperator()); // => add
+    }
+}
+```
+
+**After**
 ```java
 public interface Command {
     int execute();
@@ -279,7 +318,7 @@ public class AddCommand implements Command {
 
     @Override
     public int execute() {
-        mainState.saveHistory("AddCommand");
+        mainState.saveLastOperator("add");
         return a + b;
     }
 }
@@ -295,21 +334,26 @@ public class Calculator {
 
 ```java
 public class Main {
-  private String latestCommand = "";
+    private String lastOperator = "";
   
-  public static void main(String[] args) {
-    Calculator calculator = new Calculator();
-    calculator.calculateUsingCommand(this, new AddCommand(1, 2)); // => 3, latestCommand = "AddCommand"
-    calculator.calculateUsingCommand(this, new DevideCommand(2, 2)); // => 1, latestCommand = "DevideCommand"
-  }
-  
-  public void saveHistory(String commandName) {
-      latestCommand = commandName;
-  }
+    public static void main(String[] args) {
+        Calculator calculator = new Calculator();
+        Main main = new Main();
+        calculator.calculateUsingCommand(new AddCommand(main, 2, 1)); // => 3
+        System.out.println(main.getLastOperator()); // => add
+    }
+    
+    public String getLastOperator() {
+        return this.lastOperator;
+    }
+      
+    public void saveLastOperator(String operator) {
+        this.lastOperator = operator;
+    }
 }
 ```
 
->>> Use Command pattern when you want to pass the state between the commands
+>>> Use Command pattern when you want to pass the state to the commands
 
 ### Rules pattern
 
