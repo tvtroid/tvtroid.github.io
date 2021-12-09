@@ -346,6 +346,54 @@ public class HighSpentNonGoldLink extends Link {
 ```
 
 ```java
+public class HighSpentNonGoldLink implements Link {
+    @Override
+    public int execute(int spent, String type) {
+        if (spent > 120 && !"GOLD".equals(type)) {
+            return spent * 3;
+        }
+        return base.execute(spent, type);
+    }
+}
+```
+
+```java
+public class MediumSpentLink implements Link {
+    @Override
+    public int execute(int spent, String type) {
+      if (spent <= 120 && spent > 50) {
+        return spent * 2;
+      }
+      return base.execute(spent, type);
+    }
+}
+```
+
+```java
+public class LowSpentSilverLink implements Link {
+    @Override
+    public int execute(int spent, String type) {
+      if (spent <= 50 && "SILVER".equals(type)) {
+        return 50;
+      }
+      return base.execute(spent, type);
+    }
+}
+```
+
+```java
+public class LowSpentNonSilverLink implements Link {
+    @Override
+    public int execute(int spent, String type) {
+      if (spent <= 50 && !"SILVER".equals(type)) {
+        return spent;
+      }
+      return base.execute(spent, type);
+    }
+}
+```
+
+```java
 Link chain = new HighSpentGoldLink();
 Link secondLink = new HighSpentNonGoldLink();
 // other links
@@ -446,7 +494,6 @@ public class Calculator {
   static {
       calculators.add(new HighSpentGoldRule());
       calculators.add(new HighSpentNonGoldRule());
-      calculators.add(new MediumSpentRule());
       // more rules
   }
   
