@@ -535,7 +535,7 @@ chain.setNextLink(secondLink);
 chain.execute(130, "SILVER"); // => 130 * 4
 ```
 
-### Conclusion
+## Conclusion
 There's always a better design to replace nested if-else. We can combine design patterns if possible to resolve our real case.
 - When conditions are simple such as string or enum, there is an oppotunity to replace them with _Factory Method_
 - When conditions are more complicated, lets think about _Strategy_
