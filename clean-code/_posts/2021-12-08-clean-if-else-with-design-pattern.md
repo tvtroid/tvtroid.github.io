@@ -280,6 +280,28 @@ public class Main {
 
 ## Chain of Responsibility pattern
 
+**Before**
+```java
+// Calculate membership points based on type of the member and how much they spent
+public int calculate(int spent, String type) {
+  if(spent > 120){ 
+    if("GOLD".equals(type)){ 
+      return spent * 4; 
+    } else { 
+      return spent * 3; 
+    } 
+  } else if(spent > 50){ 
+    return spent * 2; 
+  } else if("SILVER".equals(type)){ 
+    return 50; 
+  } 
+  // many more else if 
+  else{ 
+    return spent; 
+  }
+}
+```
+
 **After**
 
 ```
@@ -337,28 +359,6 @@ chain.execute(130, "SILVER"); // => 130 * 4
 ### Rules pattern
 
 >> When we end up writing a large number of nested if statements, each of the conditions is a business rule which has to be evaluated for the correct logic to be processed. A rule engine takes such complexity out of the main code.
-
-**Before**
-```java
-// Calculate membership points based on type of the member and how much they spent
-public int calculate(int spent, String type) {
-  if(spent > 120){ 
-    if("GOLD".equals(type)){ 
-      return spent * 4; 
-    } else { 
-      return spent * 3; 
-    } 
-  } else if(spent > 50){ 
-    return spent * 2; 
-  } else if("SILVER".equals(type)){ 
-    return 50; 
-  } 
-  // many more else if 
-  else{ 
-    return spent; 
-  }
-}
-```
 
 **After**
 
@@ -471,4 +471,12 @@ There's always a better design to replace nested if-else. We can combine design 
 - When conditions are more complicated, lets think about _Strategy_
 - When we need to modify the state, _Command_ may be a better choice compare to _Strategy_
 - When there are many nested if-else statements, lets consider using _Rules_ or _Chain of Responsibility_. We shouldn't use them for simple designs.
-- _Rules_ and _Chain of Responsibility_ are similar and can be applied to the same situation. However, _Chain of Responsibility_ lets us define the order of conditions at runtime but _Rules_ does not allow us to modify the execution order of rules 
+- _Rules_ and _Chain of Responsibility_ are similar and can be applied to the same situation. However, _Rules_ can be used for very complex cases with hundred of conditions
+- There are sevaral rule engines which can handle thousand of complex business rules, e.g. Drools https://drools.org/
+
+## References
+
+- https://refactoring.guru/design-patterns
+- https://www.baeldung.com/java-replace-if-statements
+- https://medium.com/@aathalye/chain-of-responsibility-avoiding-nested-if-else-in-your-oo-code-ee78d1830643
+- https://www.michael-whelan.net/rules-design-pattern/
