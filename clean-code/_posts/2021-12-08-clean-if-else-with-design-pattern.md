@@ -301,6 +301,7 @@ public interface Command {
 public class AddCommand implements Command {
     // Command will hold state
     private Main mainState;
+    private int a, b;
 
     public AddCommand(Main mainState, int a, int b) {
         this.mainState = mainState;
