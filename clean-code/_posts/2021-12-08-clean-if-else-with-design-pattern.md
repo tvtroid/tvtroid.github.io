@@ -17,76 +17,6 @@ Nested if statements make our code more complex and difficult to maintain
 - It's difficult for debugging because a programmer faces difficulty associate statement to related block.
 - Every time we want to add a new condition, we have to read and understand the old logics to make sure the new conndition is added into the correct position.
 
-## Examples
-
-**router.ts**
-
-```ts
-if (store.state.auth.isAuthenticated) {
-  if (to.name === "login") {
-    next({ name: "home" });
-    return;
-  }
-  next();
-  return;
-} else if (to.meta && to.meta.allowPublicAccess) {
-  next();
-  return;
-} else {
-  if (to.name !== "login" && to.name !== "home") {
-    next({ name: "login", query: { redirect: to.fullPath } });
-  } else {
-    next({ name: "login" });
-  }
-  return;
-}
-```
-
-**GetVisitsForUserAct.java**
-
-```java
-if (jsGram.platform_category == AC.PlatformCategory.WEBSITE.getTypeId()
-    || jsGram.platform_category == AC.PlatformCategory.MOBILE_APP.getTypeId()) {
-
-  jsGram.cv_attrs = parseCvAttr(gram.getConversionAttrs());
-
-    if (jsGram.gram_type == AC.GramType.CV || jsGram.gram_type == AC.GramType.NCV) {
-
-      setCvInfo(gram, jsGram);
-    } else if (jsGram.gram_type == AC.GramType.PV) {
-
-      setPvInfo(gram, jsGram);
-    } else if (jsGram.gram_type == AC.GramType.Event) {
-
-      setEventInfo(gram, jsGram);
-    } else if (jsGram.gram_type == AC.GramType.Launch) {
-
-      setLaunchInfo(gram, jsGram);
-    } else {
-
-      throw new AppException(securityParam.uuid,
-          GAC.ErrorCode.InvalidGramType, "invalid gram_type.[" + gram + "]");
-    }
-  } else if (jsGram.platform_category == AC.PlatformCategory.BE.getTypeId()) {
-
-  setBeInfo(gram, jsGram);
-  } else if (jsGram.platform_category == AC.PlatformCategory.CLDB.getTypeId()) {
-
-  setCldbInfo(gram, jsGram);
-  } else if (jsGram.platform_category == AC.PlatformCategory.CONTACT.getTypeId()) {
-
-  setContactInfo(gram, jsGram);
-  } else if (jsGram.platform_category == AC.PlatformCategory.BIZ_INDEX.getTypeId()) {
-
-  setBizIndexInfo(gram, jsGram);
-  } else {
-
-  throw new AppException(securityParam.uuid,
-      GAC.ErrorCode.InvalidPlatformCategory,
-      "invalid platform_category.[" + gram.toString() + "]");
-  }
-```
-
 ## Refactoring
 
 ### Factory method pattern
@@ -348,6 +278,62 @@ public class Main {
 
 >>> Use Command pattern when you want to pass the state to the commands
 
+## Chain of Responsibility pattern
+
+**After**
+
+```
+public abstract class Link {
+    private Link nextLink;
+
+    public void setNextLink(Link next) {
+        nextLink = next;
+    }
+
+    public virtual int execute(int spent, String type) {
+        if (nextLink != null) {
+            return nextLink.execute(spent);
+        }
+        return spent;
+    }
+}
+```
+
+```java
+public class HighSpentGoldLink extends Link {
+    @Override
+    public int execute(int spent, String type) {
+        if (spent > 120 && "GOLD".equals(type)) {
+          return spent * 4;
+        }
+        return base.execute(spent, type);
+    }
+}
+```
+
+```java
+public class HighSpentNonGoldLink extends Link {
+    @Override
+    public int execute(int spent, String type) {
+      if (spent > 120 && !"GOLD".equals(type)) {
+        return spent * 3;
+      }
+      return base.execute(spent, type);
+    }
+}
+```
+
+```java
+Link chain = new HighSpentGoldLink();
+Link secondLink = new HighSpentNonGoldLink();
+// other links
+
+chain.setNextLink(secondLink);
+// other links
+
+chain.execute(130, "SILVER"); // => 130 * 4
+```
+
 ### Rules pattern
 
 >> When we end up writing a large number of nested if statements, each of the conditions is a business rule which has to be evaluated for the correct logic to be processed. A rule engine takes such complexity out of the main code.
@@ -477,62 +463,6 @@ public class Calculator {
 ```java
 PointCalculator.calculate(130, "SILVER"); // => 130 * 4
 PointCalculator.calculate(51, "GOLD"); // => 130 * 2
-```
-
-## Chain of Responsibility pattern
-
-**After**
-
-```
-public abstract class Link {
-    private Link nextLink;
-
-    public void setNextLink(Link next) {
-        nextLink = next;
-    }
-
-    public virtual int execute(int spent, String type) {
-        if (nextLink != null) {
-            return nextLink.execute(spent);
-        }
-        return spent;
-    }
-}
-```
-
-```java
-public class HighSpentGoldLink extends Link {
-    @Override
-    public int execute(int spent, String type) {
-        if (spent > 120 && "GOLD".equals(type)) {
-          return spent * 4;
-        }
-        return base.execute(spent, type);
-    }
-}
-```
-
-```java
-public class HighSpentNonGoldLink extends Link {
-    @Override
-    public int execute(int spent, String type) {
-      if (spent > 120 && !"GOLD".equals(type)) {
-        return spent * 3;
-      }
-      return base.execute(spent, type);
-    }
-}
-```
-
-```java
-Link chain = new HighSpentGoldLink();
-Link secondLink = new HighSpentNonGoldLink();
-// other links
-
-chain.setNextLink(secondLink);
-// other links
-
-chain.execute(130, "SILVER"); // => 130 * 4
 ```
 
 ## Conclusion
