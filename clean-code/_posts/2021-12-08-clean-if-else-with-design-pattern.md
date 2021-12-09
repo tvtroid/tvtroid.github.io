@@ -535,3 +535,11 @@ chain.setNextLink(secondLink);
 
 chain.execute(130, "SILVER"); // => 130 * 4
 ```
+
+### Conclusion
+There's always a better design to replace nested if-else. We can combine design patterns if possible to resolve our real case.
+- When conditions are simple such as string or enum, there is an oppotunity to replace them with _Factory Method_
+- When conditions are more complicated, lets think about _Strategy_
+- When we need to modify the state, _Command_ may be a better choice compare to _Strategy_
+- When there are many nested if-else statements, lets consider using _Rules_ or _Chain of Responsibility_. We shouldn't use them for simple designs.
+- _Rules_ and _Chain of Responsibility_ are similar and can be applied to the same situation. However, _Chain of Responsibility_ lets us define the order of conditions at runtime but _Rules_ does not allow us to modify the execution order of rules 
