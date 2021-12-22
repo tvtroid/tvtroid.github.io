@@ -281,6 +281,7 @@ public class Main {
 > When we need to modify the state, _Command_ may be a better choice compare to _Strategy_
 
 ## Chain of Responsibility pattern
+>> Chain of Responsibility is a behavioral design pattern that lets you pass requests along a chain of handlers. Upon receiving a request, each handler decides either to process the request or to pass it to the next handler in the chain.
 
 **Before**
 ```java
