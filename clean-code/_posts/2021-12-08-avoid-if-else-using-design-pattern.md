@@ -315,7 +315,7 @@ public abstract class Link {
         nextLink = next;
     }
 
-    public virtual int execute(int spent, String type) {
+    public abstract int execute(int spent, String type) {
         if (nextLink != null) {
             return nextLink.execute(spent);
         }
