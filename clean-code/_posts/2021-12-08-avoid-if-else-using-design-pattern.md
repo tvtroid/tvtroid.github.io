@@ -14,7 +14,7 @@ category: clean-code
 Nested if statements make our code more complex and difficult to maintain
 - When the number of conditions increases in the nested if-else block, the complexity of the code gets increased, maintenance of code is also increased
 - Using lots of if statement makes the testing process difficult
-- It's difficult for debugging because a programmer faces difficulty associate statement to related block.
+- It's difficult for debugging because we will face difficulty associate statement to related block.
 - Every time we want to add a new condition, we have to read and understand the old logics to make sure the new conndition is added into the correct position.
 
 ## Refactoring
@@ -80,6 +80,8 @@ public class FilterConditionFactory {
     FilterConditionFactory factory = new FilterConditionFactory();
     FilterCondition condition = factory.getFilterCondition(TypeEnum.period);
 ```
+
+> When conditions are simple such as string or enum, there is an oppotunity to replace them with _Factory Method_
 
 ### Strategy + Factory Method pattern
 
@@ -276,7 +278,7 @@ public class Main {
 }
 ```
 
->>> Use Command pattern when you want to pass the state to the commands
+> When we need to modify the state, _Command_ may be a better choice compare to _Strategy_
 
 ## Chain of Responsibility pattern
 
@@ -512,14 +514,13 @@ PointCalculator.calculate(130, "SILVER"); // => 130 * 4
 PointCalculator.calculate(51, "GOLD"); // => 130 * 2
 ```
 
+> When there are many nested if-else statements, lets consider using _Rules_ or _Chain of Responsibility_. We shouldn't use them for simple designs.
+> _Rules_ and _Chain of Responsibility_ are similar and can be applied to the same situation. However, _Rules_ can be used for very complex cases with hundred of conditions
+> There are sevaral rule engines which can handle thousand of complex business rules, e.g. Drools https://drools.org/
+
+
 ## Conclusion
 There's always a better design to replace nested if-else. We can combine design patterns if possible to resolve our real case.
-- When conditions are simple such as string or enum, there is an oppotunity to replace them with _Factory Method_
-- When conditions are more complicated, lets think about _Strategy_
-- When we need to modify the state, _Command_ may be a better choice compare to _Strategy_
-- When there are many nested if-else statements, lets consider using _Rules_ or _Chain of Responsibility_. We shouldn't use them for simple designs.
-- _Rules_ and _Chain of Responsibility_ are similar and can be applied to the same situation. However, _Rules_ can be used for very complex cases with hundred of conditions
-- There are sevaral rule engines which can handle thousand of complex business rules, e.g. Drools https://drools.org/
 
 ## References
 
