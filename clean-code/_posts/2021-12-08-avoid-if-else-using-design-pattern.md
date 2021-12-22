@@ -515,7 +515,9 @@ PointCalculator.calculate(51, "GOLD"); // => 130 * 2
 ```
 
 > When there are many nested if-else statements, lets consider using _Rules_ or _Chain of Responsibility_. We shouldn't use them for simple designs.
+
 > _Rules_ and _Chain of Responsibility_ are similar and can be applied to the same situation. However, _Rules_ can be used for very complex cases with hundred of conditions
+
 > There are sevaral rule engines which can handle thousand of complex business rules, e.g. Drools https://drools.org/
 
 
