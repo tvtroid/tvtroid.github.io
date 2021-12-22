@@ -522,7 +522,7 @@ PointCalculator.calculate(51, "GOLD"); // => 130 * 2
 
 
 ## Conclusion
-There's always a better design to replace nested if-else. We can combine design patterns if possible to resolve our real case.
+There's always a better design to replace nested if-else. We can combine design patterns if possible to resolve our real cases.
 
 ## References
 
