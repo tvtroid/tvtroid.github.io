@@ -8,9 +8,11 @@ category: cassandra
 
 ## What is Cassandra?
 
-Cassandra is a distributed database management system designed for handling a high volumn of structured data across commodity servers.
+Cassandra is a free and open-source, distributed, wide-column store, NoSQL database management system designed to handle large amounts of data across many commodity servers, providing high availability with no single point of failure. (_Wikipedia_)
 
-Cassandra handles the huge amount of data with its distributed architechture. Data is placed on different machines with more than oe replication factor that provides high availability and no single point of failure.
+* ** What is wide-column store database?**
+
+* ** What is NoSQL database?**
 
 <div style="text-align:center">
   <img src="https://user-images.githubusercontent.com/26586150/147382065-54ead0db-039b-4df5-9976-bcca579ea9c8.png" />
