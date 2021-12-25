@@ -12,6 +12,16 @@ Cassandra is a free and open-source, distributed, wide-column store, NoSQL datab
 
 ### What is wide-column store database?
 
+- It stores data using a column-oriented model
+- Data is stored in cells grouped in columns of data rather than rows of data
+- They use concept of keyspace (like schema in relational DB)
+- Keyspace contain colum families (like tables), which contains rows, which contains columns
+
+<div style="text-align:center">
+  <img src="https://user-images.githubusercontent.com/26586150/147385596-ac6de2f1-db27-4a56-a45f-22f379f84766.png" />
+</div>
+
+
 ### What is NoSQL database?
 
 <div style="text-align:center">
