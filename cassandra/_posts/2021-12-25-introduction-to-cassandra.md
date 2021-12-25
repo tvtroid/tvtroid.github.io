@@ -14,6 +14,6 @@ Cassandra handles the huge amount of data with its distributed architechture. Da
 
 <div style="text-align:center">
   <img src="https://user-images.githubusercontent.com/26586150/147382065-54ead0db-039b-4df5-9976-bcca579ea9c8.png" />
-  <div style="text-align:center"><i>Cirles are Nodes, blue lines are distributed architechture</i></div>
+  <div style="text-align:center !important"><i>Cirles are Nodes, blue lines are distributed architechture</i></div>
 </div>
 
