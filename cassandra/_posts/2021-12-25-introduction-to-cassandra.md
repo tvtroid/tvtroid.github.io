@@ -81,4 +81,10 @@ After data written in Commit Log, data is written in Mem-table. Data is written 
 
 When Mem-table reaches a certain threshold, data is flushed to a SSTable disk file.
 
+## Data replication in Cassandra
 
+As hardware problem can occur or link can be down at any time during data process, a solution is required to provide a backup when the problem as occured. So data is replicated for assuring no single point of failure.
+
+Cassandra places replicas of data on different nodes based on two factors:
+- **Replication Strategy**: where to place next replica
+- **Replication Factor**: total numbers of replicas on different nodes.
