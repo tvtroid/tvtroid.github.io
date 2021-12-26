@@ -83,8 +83,16 @@ When Mem-table reaches a certain threshold, data is flushed to a SSTable disk fi
 
 ## Data replication in Cassandra
 
-As hardware problem can occur or link can be down at any time during data process, a solution is required to provide a backup when the problem as occured. So data is replicated for assuring no single point of failure.
+As hardware problem can occur or link can be down at any time during data process, a solution is required to provide a backup when the problem is occured. So data is replicated for assuring no single point of failure.
 
 Cassandra places replicas of data on different nodes based on two factors:
 - **Replication Strategy**: where to place next replica
 - **Replication Factor**: total numbers of replicas on different nodes.
+
+One replication factor means that there is only a single copy of data while three replication factor mean that there are three copies of the data on three different nodes.
+
+For ensuring no single point of failure, **replication factor must be three.**
+
+There are 2 kinds of replication strategies in Cassandra:
+- **SimpleStrategy** is used when you have just one data center.
+- **NetworkTopologyStrategy** is used when you have (or plan to have) multiple data centers.
