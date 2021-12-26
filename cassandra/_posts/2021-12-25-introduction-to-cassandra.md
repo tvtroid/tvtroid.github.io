@@ -124,3 +124,7 @@ There are 3 types of read request: direct, digest and read repair request.
 The coordinator sends direct request to one of the replicas. After that, the coordinator sends the digest request to the numbers of replicas specified by Consitency level and checks whether the returned data is an updated data.
 
 After that, the coordinator send digest request to all the remaining replicas. If any node gives out of date value, a background read repair request will update that data. This process is called read repair mechanism.
+
+## Cassandra data model rules
+
+
