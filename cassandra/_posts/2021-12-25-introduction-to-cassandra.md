@@ -125,6 +125,23 @@ The coordinator sends direct request to one of the replicas. After that, the coo
 
 After that, the coordinator send digest request to all the remaining replicas. If any node gives out of date value, a background read repair request will update that data. This process is called read repair mechanism.
 
-## Cassandra data model rules
+## Cassandra Data Model 
+
+### Cassandra data model rules
+
+In Cassandra, writes are not expansive, not support joins, group by, OR clause, aggregation (SUM, COUNT, MIN, AVG,...), etc. So we have to store our data in a a way that is completely retrievable. Keep in mind the following rules while desnging Cassandra data model:
+
+- **Maximize the number of writes**
+
+Writes are very cheap in Cassandra. It is optimized for high write performace. So try to maximize our writes for better read performance and availability. There is a tradeoff between data write and data read. So optimize our read performace by maximize the numbers of data writes.
+
+- **Maximize data duplication**
+
+Disk space is not more expensive than memory, CPU processing and IOs operation.
+
+### Cassandra Data Modeling Goals
+
+- Spread Data Evenly Around the Cluster
+- Minimize number of partitions read while querying data
 
 
