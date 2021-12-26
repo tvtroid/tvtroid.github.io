@@ -107,6 +107,22 @@ It determines how many nodes will respond back with the success acknowledgment.
 
 The node will respond back with the success acknowledgment if data is written successfully to the commit log and mem-table.
 
-_In a single data center with replication factor is three, three replicas will receive write request. If consistency level is one, only one replica will respond back with the success acknowledgment, and the remaining two will remain formant.
+> In a single data center with replication factor is three, three replicas will receive write request. If consistency level is one, only one replica will respond back with the success acknowledgment, and the remaining two will remain formant.
 
-Suppose if remaining two replicas lose data due to node down oe something else, Cassandra will make the row connsistent by it's built-in repair mechanism._
+> Suppose if remaining two replicas lose data due to node down oe something else, Cassandra will make the row connsistent by it's built-in repair mechanism.
+
+1. When write request comes to the node, first of all, it logs in the commit log.
+2. Then Cassandra writes data in the mem-table. Data written in mem-table on each write request also writes in commit log separately. Mem-table is a temporarily stored data in the memmory while Commit log logs the transaction records for backup purposes.
+3. When mem-table is full, data is flushed to the SSTable data file. 
+
+<div style="text-align:center">
+  <img src="https://user-images.githubusercontent.com/26586150/147400231-a7f96ae3-6e46-4534-9b53-cb11f2a30061.png" />
+</div>
+
+## Read operation in Cassandra
+
+There are 3 types of read request: direct, digest and read repair request.
+
+The coordinator sends direct request to one of the replicas. After that, the coordinator sends the digest request to the numbers of replicas specified by Consitency level and checks whether the returned data is an updated data.
+
+After that, the coordinator send digest request to all the remaining replicas. If any node gives out of date value, a background read repair request will update that data. This process is called read repair mechanism.
