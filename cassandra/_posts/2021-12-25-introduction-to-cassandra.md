@@ -96,3 +96,17 @@ For ensuring no single point of failure, **replication factor must be three.**
 There are 2 kinds of replication strategies in Cassandra:
 - **SimpleStrategy** is used when you have just one data center.
 - **NetworkTopologyStrategy** is used when you have (or plan to have) multiple data centers.
+
+## Write operation in Cassandra
+
+The coordinnator sends a write request to replicas. If all the replicas are up, they will receive write request regardless of their consitency level.
+
+### Consistency level
+
+It determines how many nodes will respond back with the success acknowledgment.
+
+The node will respond back with the success acknowledgment if data is written successfully to the commit log and mem-table.
+
+_In a single data center with replication factor is three, three replicas will receive write request. If consistency level is one, only one replica will respond back with the success acknowledgment, and the remaining two will remain formant.
+
+Suppose if remaining two replicas lose data due to node down oe something else, Cassandra will make the row connsistent by it's built-in repair mechanism._
