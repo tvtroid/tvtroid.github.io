@@ -101,9 +101,7 @@ There are 2 kinds of replication strategies in Cassandra:
 
 The coordinnator sends a write request to replicas. If all the replicas are up, they will receive write request regardless of their consitency level.
 
-### Consistency level
-
-It determines how many nodes will respond back with the success acknowledgment.
+**Consistency level** determines how many nodes will respond back with the success acknowledgment.
 
 The node will respond back with the success acknowledgment if data is written successfully to the commit log and mem-table.
 
