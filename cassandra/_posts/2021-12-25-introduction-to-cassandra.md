@@ -35,7 +35,7 @@ Typically, "NoSQL database" means non-relational database. Some people say "NoSQ
 ### Advantages
 
 - Flexible schemas (Unlike relational DB, it requires a table's schema before inserting data, NoSQL can have diferrent numbers column/document)
-- Horizontal scaling (refers to bringing additional nnodes to share the load when vertical scaling refers to increasing the power of a single server or cluster)
+- Horizontal scaling (refers to bringing additional nodes to share the load when vertical scaling refers to increasing the power of a single server or cluster)
 - Fast queries due to data model
 - Ease of use for developers
 
@@ -50,5 +50,35 @@ There are four major types:
 <div style="text-align:center">
   <img src="https://user-images.githubusercontent.com/26586150/147398613-22b1d3e0-7d91-49cd-889d-0490551cc2e1.png" />
 </div>
+
+## Components of Cassandra Architecture
+
+<div style="text-align:center">
+  <img src="https://user-images.githubusercontent.com/26586150/147398729-731a9eb3-d7ef-445e-a3ad-9b60febb59c6.png" />
+</div>
+
+### Node
+
+Node is a place where data is stored. It's the basic component of Cassandra.
+
+### Data Center
+
+A collection of nodes are called data center. Many node are caegoried as a data center.
+
+### Cluster
+
+The cluster is the collection of many data centers.
+
+### Commit Log
+
+Every write operation is written to Commit Log. It is used for crash recovery.
+
+### Mem-table
+
+After data written in Commit Log, data is written in Mem-table. Data is written in Mem-table temporarily.
+
+### SSTable
+
+When Mem-table reaches a certain threshold, data is flushed to a SSTable disk file.
 
 
