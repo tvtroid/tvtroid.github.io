@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Cassandra Query Language
+title: "Cassandra Query Language"
 permalink: "/cassandra/cassandra-query-language"
 date: 2021-12-27 16:24:45 +0700
 category: cassandra
