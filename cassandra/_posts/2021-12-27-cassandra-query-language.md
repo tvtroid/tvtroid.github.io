@@ -16,6 +16,7 @@ A keyspace (similar to database in relational DB) is a collection of database ob
 - tables (or column families)
 - user-defined types
 - user-defined functions
-- and more
+- replication settings
+- and more!
 
 In addition, the keyspace also controls the replication behavior for all of the data stored in the keyspace.
