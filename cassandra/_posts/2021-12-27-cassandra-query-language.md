@@ -1,0 +1,21 @@
+---
+layout: post
+title: "Cassandra Query Language
+permalink: "/cassandra/cassandra-query-language"
+date: 2021-12-27 16:24:45 +0700
+category: cassandra
+---
+
+## Create a keyspace
+
+```
+CREATE KEYSPACE demo WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 1};
+```
+
+A keyspace (similar to database in relational DB) is a collection of database objects together, such as:
+- tables (or column families)
+- user-defined types
+- user-defined functions
+- and more
+
+In addition, the keyspace also controls the replication behavior for all of the data stored in the keyspace.
