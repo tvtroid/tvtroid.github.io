@@ -3,8 +3,9 @@ layout: default
 ---
 
 <div class="home">
-  {%- site.posts.size -%}
+  
   {%- if site.posts.size > 0 -%}
+    <i>{{ site.posts.size }}</i>
     <h2 class="post-list-heading">{{ page.list_title | default: "Recent Posts" }}</h2>
     <ul class="post-list">
       {%- for post in site.posts -%}
