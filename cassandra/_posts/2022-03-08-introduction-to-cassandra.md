@@ -2,7 +2,7 @@
 layout: post
 title: "Introduction to Cassandra"
 permalink: "/cassandra/introduction-to-cassandra"
-date: 2021-12-25 16:24:45 +0700
+date: 2022-03-08 16:24:45 +0700
 category: cassandra
 ---
 
