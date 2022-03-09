@@ -4,6 +4,7 @@ title: "Cassandra Query Language"
 permalink: "/cassandra/cassandra-query-language"
 date: 2022-03-09 16:25:45 +0700
 category: cassandra
+
 ---
 
 ## Create a keyspace
