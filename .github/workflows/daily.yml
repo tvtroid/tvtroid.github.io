@@ -2,12 +2,12 @@ name: Daily
 
 on:
   schedule:
-    - cron:  '*/15 * * * *'
+    - cron:  "*/5 * * * *"
 
 jobs:
   assign:
-    name: Set assignee
-    runs-on: ubuntu-18.04
+    name: Test
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Deploy
