@@ -1,0 +1,1 @@
+[ { "type": "QUESTION", "numbers": [ 3, 5, 8 ] }, { "type": "ONE_WELL_CORRECT", "numbers": [ 1, 5, 6 ] }, { "type": "NOTHING_CORRECT", "numbers": [ 7, 4, 9 ] }, { "type": "ONE_CORRECT_WRONG_PLACED", "numbers": [ 0, 6, 3 ] }, { "type": "ONE_CORRECT_WRONG_PLACED", "numbers": [ 0, 3, 9 ] }, { "type": "TWO_CORRECT_WRONG_PLACED", "numbers": [ 9, 8, 3 ] } ]
