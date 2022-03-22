@@ -1,6 +1,7 @@
 name: Daily
 
 on:
+  workflow_dispatch:
   schedule:
     - cron:  "0 1 * * *"
 
@@ -12,7 +13,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Run script
         run: |
-          ./questions.sh
+          question2=$(./new2.sh)
+          echo $question2
       
     name: Deploy to gist
     runs-on: ubuntu-latest
