@@ -2,6 +2,6 @@
 
 . questions.sh
 
-codeCount=2
+codeCount=4
 correctNumbers=( $(getRandomNumbers $codeCount) )
-generateHintsFor2 correctNumbers[@]
+generateHintsFor4 correctNumbers[@]
