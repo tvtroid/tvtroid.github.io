@@ -2,17 +2,35 @@ name: Daily
 
 on:
   schedule:
-    - cron:  "* * * */12 *"
+    - cron:  "0 1 * * *"
 
 jobs:
-  assign:
-    name: Test
+  run:
+    name: New question
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Deploy
+      - name: Deploy 2
         uses: exuanbo/actions-deploy-gist@v1
         with:
           token: ${{ secrets.TOKEN }}
-          gist_id: 3a49c2f1692cb5e3a4af6f8fd4bbfa10
-          file_path: ./dist/test.txt
+          gist_id: 9edd387ef4cf66734c0cf2d1ac2a798f
+          file_path: ./dist/2.txt
+      - name: Deploy 3
+        uses: exuanbo/actions-deploy-gist@v1
+        with:
+          token: ${{ secrets.TOKEN }}
+          gist_id: 55633d095690bad521488b264ebfc0be
+          file_path: ./dist/3.txt
+      - name: Deploy 4
+        uses: exuanbo/actions-deploy-gist@v1
+        with:
+          token: ${{ secrets.TOKEN }}
+          gist_id: de9a8ca788162b6413293bb3b9ca7dd2
+          file_path: ./dist/4.txt
+      - name: Deploy 5
+        uses: exuanbo/actions-deploy-gist@v1
+        with:
+          token: ${{ secrets.TOKEN }}
+          gist_id: fa853a8fadbd008cb701e445bd0bc979
+          file_path: ./dist/5.txt
