@@ -7,19 +7,14 @@ on:
 
 jobs:
   run:
-    name: Create new questions
+    name: Run
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Run script
+      - name: Run scripts
         run: |
           question2=$(./new2.sh)
           echo $question2
-      
-    name: Deploy to gist
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
       - name: Deploy 2
         uses: exuanbo/actions-deploy-gist@v1
         with:
