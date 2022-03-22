@@ -6,7 +6,12 @@ on:
 
 jobs:
   run:
-    name: New question
+    name: Create new questions
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+    name: Deploy to gist
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
