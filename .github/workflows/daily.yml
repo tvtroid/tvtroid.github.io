@@ -12,6 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run scripts
+        working-directory: ./.github/workflows
         run: |
           question2=$(./new2.sh)
           echo $question2
