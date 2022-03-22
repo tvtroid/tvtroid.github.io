@@ -1,0 +1,1 @@
+[ { "type": "QUESTION", "numbers": [ 1, 9 ] }, { "type": "oneCorrectWellPlaced", "numbers": [ 1, 6 ] }, { "type": "nothingCorrect", "numbers": [ 0, 7 ] }, { "type": "oneCorrectWrongPlaced", "numbers": [ 9, 4 ] }, { "type": "oneCorrectWrongPlaced", "numbers": [ 9, 3 ] } ]
