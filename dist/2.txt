@@ -1,1 +1,1 @@
-[ { "type": "QUESTION", "numbers": [ 1, 9 ] }, { "type": "oneCorrectWellPlaced", "numbers": [ 1, 6 ] }, { "type": "nothingCorrect", "numbers": [ 0, 7 ] }, { "type": "oneCorrectWrongPlaced", "numbers": [ 9, 4 ] }, { "type": "oneCorrectWrongPlaced", "numbers": [ 9, 3 ] } ]
+[ { "type": "QUESTION", "numbers": [ 7, 3 ] }, { "type": "ONE_WELL_CORRECT", "numbers": [ 7, 5 ] }, { "type": "NOTHING_CORRECT", "numbers": [ 2, 5 ] }, { "type": "ONE_CORRECT_WRONG_PLACED", "numbers": [ 3, 4 ] }, { "type": "ONE_CORRECT_WRONG_PLACED", "numbers": [ 6, 7 ] } ]
