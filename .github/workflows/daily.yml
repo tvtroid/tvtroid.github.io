@@ -14,8 +14,9 @@ jobs:
 
       - name: Generate 2
         id: generate_2
+        working-directory: ./.github/workflows
         run: |
-          question2=$(./.github/workflows/new2.sh)
+          question2=$(./new2.sh)
           echo ::set-output name=question2::$(echo ${question2})
       - name: Write to 2
         uses: DamianReeves/write-file-action@v1.0
@@ -33,8 +34,9 @@ jobs:
 
       - name: Generate 3
         id: generate_3
+        working-directory: ./.github/workflows
         run: |
-          question3=$(./.github/workflows/new3.sh)
+          question3=$(./new3.sh)
           echo ::set-output name=question3::$(echo ${question3})
       - name: Write to 3
         uses: DamianReeves/write-file-action@v1.0
@@ -52,8 +54,9 @@ jobs:
       
       - name: Generate 4
         id: generate_4
+        working-directory: ./.github/workflows
         run: |
-          question4=$(./.github/workflows/new4.sh)
+          question4=$(./new4.sh)
           echo ::set-output name=question4::$(echo ${question4})
       - name: Write to 4
         uses: DamianReeves/write-file-action@v1.0
@@ -71,8 +74,9 @@ jobs:
           
       - name: Generate 5
         id: generate_5
+        working-directory: ./.github/workflows
         run: |
-          question5=$(./.github/workflows/new5.sh)
+          question5=$(./new5.sh)
           echo ::set-output name=question5::$(echo ${question5})
       - name: Write to 5
         uses: DamianReeves/write-file-action@v1.0
