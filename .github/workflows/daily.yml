@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Write to 2
-        uses: DamianReeves/write-file-action
+        uses: DamianReeves/write-file-action@v1.0
         with:
           path: ./dist/2.txt
           contents: |
@@ -28,7 +28,7 @@ jobs:
           file_path: ./dist/2.txt
 
       - name: Write to 3
-        uses: DamianReeves/write-file-action
+        uses: DamianReeves/write-file-action@v1.0
         with:
           path: ./dist/3.txt
           contents: |
@@ -43,7 +43,7 @@ jobs:
           file_path: ./dist/3.txt
       
       - name: Write to 4
-        uses: DamianReeves/write-file-action
+        uses: DamianReeves/write-file-action@v1.0
         with:
           path: ./dist/4.txt
           contents: |
@@ -58,7 +58,7 @@ jobs:
           file_path: ./dist/4.txt
           
       - name: Write to 5
-        uses: DamianReeves/write-file-action
+        uses: DamianReeves/write-file-action@v1.0
         with:
           path: ./dist/5.txt
           contents: |
