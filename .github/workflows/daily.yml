@@ -11,29 +11,60 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Run scripts
-        working-directory: ./.github/workflows
-        run: |
-          question2=$(./new2.sh)
-          echo $question2
+
+      - name: Write to 2
+        uses: DamianReeves/write-file-action@v1
+        with:
+          path: ./dist/2.txt
+          contents: |
+            question2=$(./.github/workflows/new2.sh)
+            echo $question2
+          write-mode: overwrite
       - name: Deploy 2
         uses: exuanbo/actions-deploy-gist@v1
         with:
           token: ${{ secrets.TOKEN }}
           gist_id: 9edd387ef4cf66734c0cf2d1ac2a798f
           file_path: ./dist/2.txt
+
+      - name: Write to 3
+        uses: DamianReeves/write-file-action@v1
+        with:
+          path: ./dist/3.txt
+          contents: |
+            question3=$(./.github/workflows/new3.sh)
+            echo $question3
+          write-mode: overwrite
       - name: Deploy 3
         uses: exuanbo/actions-deploy-gist@v1
         with:
           token: ${{ secrets.TOKEN }}
           gist_id: 55633d095690bad521488b264ebfc0be
           file_path: ./dist/3.txt
+      
+      - name: Write to 4
+        uses: DamianReeves/write-file-action@v1
+        with:
+          path: ./dist/4.txt
+          contents: |
+            question4=$(./.github/workflows/new4.sh)
+            echo $question4
+          write-mode: overwrite
       - name: Deploy 4
         uses: exuanbo/actions-deploy-gist@v1
         with:
           token: ${{ secrets.TOKEN }}
           gist_id: de9a8ca788162b6413293bb3b9ca7dd2
           file_path: ./dist/4.txt
+          
+      - name: Write to 5
+        uses: DamianReeves/write-file-action@v1
+        with:
+          path: ./dist/5.txt
+          contents: |
+            question5=$(./.github/workflows/new5.sh)
+            echo $question5
+          write-mode: overwrite
       - name: Deploy 5
         uses: exuanbo/actions-deploy-gist@v1
         with:
