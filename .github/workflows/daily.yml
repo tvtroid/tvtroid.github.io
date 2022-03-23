@@ -12,12 +12,17 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Generate 2
+        id: generate_2
+        run: |
+          question2=$(./.github/workflows/new2.sh)
+          echo ::set-output name=question2::$(echo ${question2})
       - name: Write to 2
         uses: DamianReeves/write-file-action@v1.0
         with:
           path: ./dist/2.txt
           contents: |
-            ./.github/workflows/new2.sh
+            ${{ steps.generate_2.outputs.question2 }}
           write-mode: overwrite
       - name: Deploy 2
         uses: exuanbo/actions-deploy-gist@v1
@@ -26,13 +31,17 @@ jobs:
           gist_id: 9edd387ef4cf66734c0cf2d1ac2a798f
           file_path: ./dist/2.txt
 
+      - name: Generate 3
+        id: generate_3
+        run: |
+          question3=$(./.github/workflows/new3.sh)
+          echo ::set-output name=question3::$(echo ${question3})
       - name: Write to 3
         uses: DamianReeves/write-file-action@v1.0
         with:
           path: ./dist/3.txt
           contents: |
-            question3=$(./.github/workflows/new3.sh)
-            echo $question3
+            ${{ steps.generate_3.outputs.question3 }}
           write-mode: overwrite
       - name: Deploy 3
         uses: exuanbo/actions-deploy-gist@v1
@@ -41,13 +50,17 @@ jobs:
           gist_id: 55633d095690bad521488b264ebfc0be
           file_path: ./dist/3.txt
       
+      - name: Generate 4
+        id: generate_4
+        run: |
+          question4=$(./.github/workflows/new4.sh)
+          echo ::set-output name=question4::$(echo ${question4})
       - name: Write to 4
         uses: DamianReeves/write-file-action@v1.0
         with:
           path: ./dist/4.txt
           contents: |
-            question4=$(./.github/workflows/new4.sh)
-            echo $question4
+            ${{ steps.generate_4.outputs.question4 }}
           write-mode: overwrite
       - name: Deploy 4
         uses: exuanbo/actions-deploy-gist@v1
@@ -56,13 +69,17 @@ jobs:
           gist_id: de9a8ca788162b6413293bb3b9ca7dd2
           file_path: ./dist/4.txt
           
+      - name: Generate 5
+        id: generate_5
+        run: |
+          question5=$(./.github/workflows/new5.sh)
+          echo ::set-output name=question5::$(echo ${question5})
       - name: Write to 5
         uses: DamianReeves/write-file-action@v1.0
         with:
           path: ./dist/5.txt
           contents: |
-            question5=$(./.github/workflows/new5.sh)
-            echo $question5
+            ${{ steps.generate_5.outputs.question5 }}
           write-mode: overwrite
       - name: Deploy 5
         uses: exuanbo/actions-deploy-gist@v1
