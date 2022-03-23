@@ -17,8 +17,7 @@ jobs:
         with:
           path: ./dist/2.txt
           contents: |
-            question2=$(./.github/workflows/new2.sh)
-            echo $question2
+            ./.github/workflows/new2.sh
           write-mode: overwrite
       - name: Deploy 2
         uses: exuanbo/actions-deploy-gist@v1
