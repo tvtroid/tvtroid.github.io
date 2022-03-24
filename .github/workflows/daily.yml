@@ -21,7 +21,7 @@ jobs:
       - name: Write to 2
         uses: DamianReeves/write-file-action@v1.0
         with:
-          path: ./dist/2.txt
+          path: ./dist/2.json
           contents: |
             ${{ steps.generate_2.outputs.question2 }}
           write-mode: overwrite
@@ -30,7 +30,7 @@ jobs:
         with:
           token: ${{ secrets.TOKEN }}
           gist_id: 7b96c8508a45f56cc3c70b35f255d388
-          file_path: ./dist/2.txt
+          file_path: ./dist/2.json
 
       - name: Generate 3
         id: generate_3
@@ -41,7 +41,7 @@ jobs:
       - name: Write to 3
         uses: DamianReeves/write-file-action@v1.0
         with:
-          path: ./dist/3.txt
+          path: ./dist/3.json
           contents: |
             ${{ steps.generate_3.outputs.question3 }}
           write-mode: overwrite
@@ -50,7 +50,7 @@ jobs:
         with:
           token: ${{ secrets.TOKEN }}
           gist_id: 41e0d3c4c05fcc5a60a7c155a2c9751a
-          file_path: ./dist/3.txt
+          file_path: ./dist/3.json
       
       - name: Generate 4
         id: generate_4
@@ -61,7 +61,7 @@ jobs:
       - name: Write to 4
         uses: DamianReeves/write-file-action@v1.0
         with:
-          path: ./dist/4.txt
+          path: ./dist/4.json
           contents: |
             ${{ steps.generate_4.outputs.question4 }}
           write-mode: overwrite
@@ -70,7 +70,7 @@ jobs:
         with:
           token: ${{ secrets.TOKEN }}
           gist_id: 91960e472e95ecbb2a4e05d3bbb54666
-          file_path: ./dist/4.txt
+          file_path: ./dist/4.json
           
       - name: Generate 5
         id: generate_5
@@ -81,7 +81,7 @@ jobs:
       - name: Write to 5
         uses: DamianReeves/write-file-action@v1.0
         with:
-          path: ./dist/5.txt
+          path: ./dist/5.json
           contents: |
             ${{ steps.generate_5.outputs.question5 }}
           write-mode: overwrite
@@ -90,4 +90,4 @@ jobs:
         with:
           token: ${{ secrets.TOKEN }}
           gist_id: 0bdb98d750c38b1cedb340f2346ea253
-          file_path: ./dist/5.txt
+          file_path: ./dist/5.json
