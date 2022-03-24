@@ -29,7 +29,7 @@ jobs:
         uses: exuanbo/actions-deploy-gist@v1
         with:
           token: ${{ secrets.TOKEN }}
-          gist_id: 9edd387ef4cf66734c0cf2d1ac2a798f
+          gist_id: 7b96c8508a45f56cc3c70b35f255d388
           file_path: ./dist/2.txt
 
       - name: Generate 3
@@ -49,7 +49,7 @@ jobs:
         uses: exuanbo/actions-deploy-gist@v1
         with:
           token: ${{ secrets.TOKEN }}
-          gist_id: 55633d095690bad521488b264ebfc0be
+          gist_id: 41e0d3c4c05fcc5a60a7c155a2c9751a
           file_path: ./dist/3.txt
       
       - name: Generate 4
@@ -69,7 +69,7 @@ jobs:
         uses: exuanbo/actions-deploy-gist@v1
         with:
           token: ${{ secrets.TOKEN }}
-          gist_id: de9a8ca788162b6413293bb3b9ca7dd2
+          gist_id: 91960e472e95ecbb2a4e05d3bbb54666
           file_path: ./dist/4.txt
           
       - name: Generate 5
@@ -89,5 +89,5 @@ jobs:
         uses: exuanbo/actions-deploy-gist@v1
         with:
           token: ${{ secrets.TOKEN }}
-          gist_id: fa853a8fadbd008cb701e445bd0bc979
+          gist_id: 0bdb98d750c38b1cedb340f2346ea253
           file_path: ./dist/5.txt
