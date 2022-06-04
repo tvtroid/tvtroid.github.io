@@ -1,0 +1,33 @@
+---
+layout: default
+---
+
+<div class="home">
+  {%- if site.posts.size > 0 -%}
+    <h2 class="post-list-heading">{{ page.list_title | default: "Recent Posts" }}</h2>
+    <ul class="post-list">
+      {%- for post in site.posts -%}
+      {%- if post.category=="aws" -%}
+      <li>
+        <a class="post-link" href="{{ post.url | relative_url }}">
+          {{ post.title | escape }}
+        </a>
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        <span class="post-meta">{{ post.date | date: date_format }}
+          {%- if post.android_installs -%}
+          <span> • {{ post.android_installs }} installs</span>
+          {%- endif -%}
+          <span> • {% include read-time.html content=post.content %}</span>
+        </span>
+        {%- if site.show_excerpts -%}
+          {{ post.excerpt }}
+        {%- endif -%}
+      </li>
+      {%- endif -%}
+      {%- endfor -%}
+    </ul>
+
+    <p class="rss-subscribe">subscribe <a href="{{ "/aws/feed.xml" | relative_url }}">via RSS</a></p>
+  {%- endif -%}
+
+</div>
