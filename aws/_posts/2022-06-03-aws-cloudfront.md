@@ -7,4 +7,33 @@ category: aws
 
 ---
 
-## 1
+## What is AWS CloudFront
+
+CloudFront is a fast **content delivery network** (CDN) service that securely delivers contents (data, videos, applications, and APIs) to customers globally with low latency, high transfer speeds, all within a developer-friendly environment.
+
+It speeds up distribution of the static and dynamic web content (.html, .css, .js, and image files) to end users through a worldwide network of data centers called **edge locations**.
+
+## How does CloudFront works
+
+![cloudfront](https://user-images.githubusercontent.com/87863039/172003279-b7b45713-86c1-48b0-9064-c9933de770a4.jpeg)
+
+When a user requests content that is serving with CloudFront, the request is routed to the edge location that provides the lowest latency (time delay), so that content is delivered with the best possible performance.
+- If the content is already in the edge location with the lowest latency, CloudFront delivers it immediately. -> increase reliability and availability because copies of contents are now cached in multiple edge locations around the world.
+- Otherwise, CloudFront retrieves it from an origin that we’ve defined (S3, EC2 or a web server)
+
+## Use cases
+
+- Deliver fast, secure websites: a news website Reuters delivers websites to billions securely. (https://aws.amazon.com/blogs/storage/a-look-inside-how-global-multimedia-agency-reuters-uses-amazon-web-services/?pg=ln&sec=c)
+- Accelerate dynamic content delivery and APIs: Slack uses Amazon CloudFront to improve their security posture (https://www.youtube.com/watch?v=oVaTiRl9-v0)
+- Stream live and on-demand video: Hulu uses Amazon CloudFront to consistently stream high-quality video (https://www.youtube.com/watch?v=EJQkBd_-CMo&t=168s)
+- Distribute patches and updates: King delivers game updates to 200+ countries with Amazon CloudFront (https://aws.amazon.com/blogs/aws/king-using-amazon-cloudfront-to-deliver-mobile-games-to-over-200-countries/?pg=ln&sec=c)
+
+## Key Benefits of CloudFront
+
+- Global Scaled Network for Fast Content Delivery
+- Deep Integration with AWS
+- Security at the Edge
+
+References: 
+- https://aws.amazon.com/cloudfront/
+- https://medium.com/mindful-engineering/today-we-will-learn-about-cloudfront-690bf3a8819a
