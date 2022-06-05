@@ -27,7 +27,7 @@ When a user requests content that is serving with CloudFront, the request is rou
 
 - Amazon CloudFront is massively scaled and globally distributed. It includes 225+ points of presence (PoPs)/ Edge locations
 - The AWS backbone is a private network built on a global, fully redundant, parallel 100 GbE metro fiber network linked via trans-oceanic cables across the Atlantic, Pacific, and Indian Oceans, as well as, the Mediterranean, Red Sea, and South China Seas.
-- It automatically maps network conditions and intelligently routes the user’s traffic to the most performant AWS edge location. It provides ulti-tiered caching architecture by default that improves cache width and origin protection.
+- It automatically maps network conditions and intelligently routes the user’s traffic to the most performant AWS edge location. It provides ulti-tiered caching architecture (Endpoint cache, Regional cache, CDN cache, Metadata server cache) by default that improves cache size and origin protection.
 
 ## Securely
 
@@ -59,3 +59,4 @@ When a user requests content that is serving with CloudFront, the request is rou
 - https://medium.com/mindful-engineering/today-we-will-learn-about-cloudfront-690bf3a8819a
 - https://wpforms.com/best-cdn-providers/
 - https://aws.amazon.com/blogs/aws/introducing-cloudfront-functions-run-your-code-at-the-edge-with-low-latency-at-any-scale/
+- https://www.missioncriticalmagazine.com/articles/89804-multi-tier-caching-speeds-cloud-storage
