@@ -7,13 +7,13 @@ category: aws
 
 ---
 
-## What is AWS CloudFront
+## What is AWS CloudFront?
 
 CloudFront is a fast **content delivery network** (CDN) service that securely delivers contents (data, videos, applications, and APIs) to customers globally with low latency, high transfer speeds, all within a developer-friendly environment.
 
 It speeds up distribution of the static and dynamic web content (.html, .css, .js, and image files) to end users through a worldwide network of data centers called **edge locations**.
 
-## How does CloudFront works
+## How does CloudFront work?
 
 ![cloudfront](https://user-images.githubusercontent.com/87863039/172003279-b7b45713-86c1-48b0-9064-c9933de770a4.jpeg)
 
