@@ -13,6 +13,8 @@ CloudFront is a fast **content delivery network** (CDN) service that securely de
 
 It speeds up distribution of the static and dynamic web content (.html, .css, .js, and image files) to end users through a worldwide network of data centers called **edge locations**.
 
+Other CDN providers: StackPath, Sucuri, Cloudflare, KeyCDN, Rackspace, Google Cloud CDN, CacheFly
+
 ## How does CloudFront work?
 
 ![cloudfront](https://user-images.githubusercontent.com/87863039/172003279-b7b45713-86c1-48b0-9064-c9933de770a4.jpeg)
@@ -34,6 +36,12 @@ When a user requests content that is serving with CloudFront, the request is rou
 - Deep Integration with AWS
 - Security at the Edge
 
-References: 
+## Common issues in CND
+
+- Delay in content to customers
+- Caching issues
+
+## References: 
 - https://aws.amazon.com/cloudfront/
 - https://medium.com/mindful-engineering/today-we-will-learn-about-cloudfront-690bf3a8819a
+- https://wpforms.com/best-cdn-providers/
