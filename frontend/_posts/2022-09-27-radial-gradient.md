@@ -29,3 +29,15 @@ _Example 3: Conic Gradients_ (https://jsfiddle.net/tvtroid/6hg5zx0b/116/)
 _Example 4: Multiple layers of background_ (https://jsfiddle.net/tvtroid/6hg5zx0b/108/)
 
 <img width="665" alt="image" src="https://user-images.githubusercontent.com/26586150/192478991-016f5dab-1040-4789-a644-eb397b747ef5.png">
+
+## Let's dive deeper into Radial Gradients
+
+**Syntax: **
+```
+background-image: radial-gradient(shape size at position, start-color, ..., last-color);
+```
+- shape: circle/ellipse (default is ellipse)
+- size: closest-side/farthest-side/closest-corner/farthest-corner (default is farthest-corner)
+
+### Draw a circle shape
+
