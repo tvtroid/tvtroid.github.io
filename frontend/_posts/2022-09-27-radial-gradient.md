@@ -6,7 +6,7 @@ date: 2022-03-08 16:24:45 +0700
 category: frontend
 ---
 
-## Basic syntax
+## Gradients
 
 In CSS, we can set multiple backgrounds to a DOM element by using CSS Gradients.
 There are 3 types of gradients:
@@ -16,27 +16,27 @@ There are 3 types of gradients:
 
 <img width="477" alt="image" src="https://user-images.githubusercontent.com/26586150/192479692-5136675d-0621-41cb-833a-7e6c1775783b.png">
 
-_Example 1: Linear Gradients_ (https://jsfiddle.net/tvtroid/6hg5zx0b/112/)
+_Example 1: Linear Gradients_ [Demo](https://jsfiddle.net/tvtroid/6hg5zx0b/112/)
 
 
 <img width="478" alt="image" src="https://user-images.githubusercontent.com/26586150/192480661-d969423e-43f9-41cc-bf50-d29fa0edb219.png">
 
-_Example 2: Radial Gradients_ (https://jsfiddle.net/tvtroid/6hg5zx0b/115/)
+_Example 2: Radial Gradients_ [Demo](https://jsfiddle.net/tvtroid/6hg5zx0b/115/)
 
 
 <img width="464" alt="image" src="https://user-images.githubusercontent.com/26586150/192480802-d86b8fd9-8ff0-47ec-bf6c-149f0558bf29.png">
 
-_Example 3: Conic Gradients_ (https://jsfiddle.net/tvtroid/6hg5zx0b/116/)
+_Example 3: Conic Gradients_ [Demo](https://jsfiddle.net/tvtroid/6hg5zx0b/116/)
 
 
 <img width="665" alt="image" src="https://user-images.githubusercontent.com/26586150/192478991-016f5dab-1040-4789-a644-eb397b747ef5.png">
 
-_Example 4: Multiple layers of background_ (https://jsfiddle.net/tvtroid/6hg5zx0b/108/)
+_Example 4: Multiple layers of background_ [Demo](https://jsfiddle.net/tvtroid/6hg5zx0b/108/)
 
 
-## Let's dive deeper into Radial Gradients
+## Radial Gradients
 
-**Syntax: **
+**Syntax:**
 
 ```
 background-image: radial-gradient(shape size at position, start-color, ..., last-color);
@@ -50,26 +50,26 @@ background-image: radial-gradient(shape size at position, start-color, ..., last
 
 <img width="616" alt="image" src="https://user-images.githubusercontent.com/26586150/192679137-0b8c13f1-1c44-4587-ab9a-dbb620e37d7c.png">
 
-_Example 5: Ellipse shape_ (https://jsfiddle.net/tvtroid/6hg5zx0b/140/)
+_Example 5: Ellipse shape_ [Demo](https://jsfiddle.net/tvtroid/6hg5zx0b/140/)
 
 
 <img width="702" alt="image" src="https://user-images.githubusercontent.com/26586150/192678857-5182d848-a5b8-4186-9c9e-98aa3ad113e7.png">
 
-_Example 6: Custom position_ (https://jsfiddle.net/tvtroid/6hg5zx0b/138/)
+_Example 6: Custom position_ [Demo](https://jsfiddle.net/tvtroid/6hg5zx0b/138/)
 
 
 <img width="734" alt="image" src="https://user-images.githubusercontent.com/26586150/192682541-381d52cc-ee80-4698-b7a7-16ceabe1af0a.png">
 
-_Example 7: Color_ (https://jsfiddle.net/tvtroid/6hg5zx0b/188/)
+_Example 7: Color_ [Demo](https://jsfiddle.net/tvtroid/6hg5zx0b/188/)
 
 
 ### Draw a custom shape
 
 #### Issue
 
-https://jsfiddle.net/tvtroid/6hg5zx0b/394/
+[Demo](https://jsfiddle.net/tvtroid/6hg5zx0b/394/)
 
 #### Solution
 
-https://jsfiddle.net/tvtroid/6hg5zx0b/414/
+[Demo](https://jsfiddle.net/tvtroid/6hg5zx0b/414/)
 
