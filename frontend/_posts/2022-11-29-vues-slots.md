@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Slots in Vue JS"
+title: "Vue's Slots in 5 minutes"
 permalink: "/frontend/vues-slots"
 date: 2022-11-29 20:00:00 +0700
 category: frontend
