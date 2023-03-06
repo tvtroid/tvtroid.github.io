@@ -66,6 +66,7 @@ _Example 7: Color_ [Demo](https://jsfiddle.net/tvtroid/6hg5zx0b/188/)
 ### Draw a custom shape
 
 #### Issue
+
 In our situation, we have a scrollable content with `red` color, there is a white sticky header with border radius. If scrolling down, we can see the background of the content is displayed at the corders of the header:
 
 <img width="414" alt="image" src="https://user-images.githubusercontent.com/26586150/223032557-50e2e003-2890-4602-8a21-49620994f5d4.png">
@@ -73,6 +74,7 @@ In our situation, we have a scrollable content with `red` color, there is a whit
 [Demo](https://jsfiddle.net/tvtroid/6hg5zx0b/394/)
 
 #### Solution
+
 We can draw 2 custom shapes on top the the header to hide the red color at the corners.
 
 [Demo](https://jsfiddle.net/tvtroid/6hg5zx0b/414/)
