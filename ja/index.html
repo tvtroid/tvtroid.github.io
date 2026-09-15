@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0f19">
+  <title>TvTroid — 学びを遊びに変えるアプリ</title>
+  <meta name="description" content="学習と娯楽のためのシンプルで丁寧に作られたモバイルアプリ。217,000人以上がTOEIC®・パズル・チェスアプリを利用しています。">
+  <link rel="canonical" href="https://tvtroid.github.io/ja/">
+  <link rel="alternate" hreflang="en" href="https://tvtroid.github.io/">
+  <link rel="alternate" hreflang="vi" href="https://tvtroid.github.io/vi/">
+  <link rel="alternate" hreflang="ja" href="https://tvtroid.github.io/ja/">
+  <link rel="alternate" hreflang="ko" href="https://tvtroid.github.io/ko/">
+  <link rel="alternate" hreflang="zh-Hans" href="https://tvtroid.github.io/zh/">
+  <link rel="alternate" hreflang="th" href="https://tvtroid.github.io/th/">
+  <link rel="alternate" hreflang="es" href="https://tvtroid.github.io/es/">
+  <link rel="alternate" hreflang="fr" href="https://tvtroid.github.io/fr/">
+  <link rel="alternate" hreflang="id" href="https://tvtroid.github.io/id/">
+  <link rel="alternate" hreflang="el" href="https://tvtroid.github.io/el/">
+  <link rel="alternate" hreflang="x-default" href="https://tvtroid.github.io/">
+
+  <meta property="og:title" content="TvTroid — 学びを遊びに変えるアプリ">
+  <meta property="og:description" content="学習と娯楽のためのシンプルで丁寧に作られたモバイルアプリ。217,000人以上がTOEIC®・パズル・チェスアプリを利用しています。">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja">
+  <meta property="og:image" content="https://tvtroid.github.io/images/tvtroid-icon.png">
+
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="../images/tvtroid-icon.png">
+  <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/main.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrapper site-header__inner">
+    <a class="site-title" href="../index.html">
+      <img src="../images/tvtroid-icon.png" alt="TvTroid" class="site-title__logo">
+      <span>TvTroid</span>
+    </a>
+    <nav class="site-nav">
+      <a class="site-nav__link" href="#apps">アプリ</a>
+      <a class="site-nav__link" href="#about">概要</a>
+      <div class="lang-switch">
+        <svg class="lang-switch__icon" width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <circle cx="10" cy="10" r="7.6" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M2.4 10h15.2M10 2.4c2 2.2 3 4.9 3 7.6s-1 5.4-3 7.6c-2-2.2-3-4.9-3-7.6s1-5.4 3-7.6z"
+                stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+        </svg>
+        <select class="lang-switch__select" aria-label="言語" onchange="TvTroidLang.go(this.value)">
+        <option value="en">English</option>
+        <option value="vi">Tiếng Việt</option>
+        <option value="ja" selected>日本語</option>
+        <option value="ko">한국어</option>
+        <option value="zh">中文</option>
+        <option value="th">ไทย</option>
+        <option value="es">Español</option>
+        <option value="fr">Français</option>
+        <option value="id">Bahasa Indonesia</option>
+        <option value="el">Ελληνικά</option>
+        </select>
+      </div>
+      <a class="site-nav__link site-nav__cta" href="#apps">アプリを入手</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page-content">
+
+  <section class="hero">
+    <div class="hero__glow" aria-hidden="true"></div>
+    <div class="wrapper hero__inner">
+      <p class="eyebrow reveal">TvTroid制作</p>
+      <h1 class="hero__title reveal">
+        学びを<br>
+        <span class="hero__title-accent">遊びに変えるアプリ</span>
+      </h1>
+      <p class="hero__subtitle reveal">217,000人以上が、TOEIC®対策と頭脳を鍛えるパズルに私たちのアプリを使っています — 無料でダウンロード、すぐに好きになります。</p>
+      <div class="hero__actions reveal">
+        <a href="#apps" class="btn btn--primary">
+          アプリを見る
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3.5 8h9m0 0L8.5 4M12.5 8L8.5 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#about" class="btn btn--ghost">詳しく見る</a>
+      </div>
+
+      <div class="hero__stats reveal">
+        <div class="stat">
+          <span class="stat__number" data-count="217000">0</span>
+          <span class="stat__label">インストール数</span>
+        </div>
+        <div class="stat">
+          <span class="stat__number" data-count="4.6" data-decimal="1">0</span>
+          <span class="stat__label">平均評価</span>
+        </div>
+        <div class="stat">
+          <span class="stat__number" data-count="3">0</span>
+          <span class="stat__label">リリース済みアプリ</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="apps" id="apps">
+    <div class="wrapper">
+      <div class="section-heading reveal">
+        <p class="eyebrow">アプリ一覧</p>
+        <h2>次のお気に入りを見つけよう</h2>
+        <p class="section-heading__subtitle">無料ダウンロード。シンプルで速く、本当に役立つように作られています。</p>
+      </div>
+
+      <div class="app-grid">
+
+        <article class="app-card app-card--featured reveal" style="--accent: #3b82f6;">
+          <a class="app-card__link" href="https://new-toeic-test.pages.dev/" target="_blank" rel="noopener"
+             aria-label="New Practice for TOEIC® Test">
+            <div class="app-card__icon-wrap">
+              <img src="../images/toeic-test-01.png" alt="New Practice for TOEIC® Test" class="app-card__icon" loading="lazy">
+            </div>
+            <div class="app-card__body">
+            <span class="app-card__badge">一番人気</span>
+              <h3 class="app-card__title">New Practice for TOEIC® Test</h3>
+              <p class="app-card__tagline">間隔反復でTOEIC®新形式を攻略</p>
+              <p class="app-card__description">1,000問以上の実践的なTOEIC®問題と、賢い間隔反復エンジンで語彙と文法を長期的に定着 — 試験当日だけでなく、ずっと。</p>
+              <div class="app-card__meta">
+              <span class="app-card__meta-item"><svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6-4.5-4.2 6.1-.7L10 1.5z"/></svg>
+                4.7
+              </span>
+              <span class="app-card__meta-item">200,000+ インストール</span>
+              </div>
+            </div>
+          </a>
+          <div class="app-card__actions">
+            <a href="https://play.google.com/store/apps/details?id=com.tvt.toeictest.newformat2019" class="store-badge" target="_blank" rel="noopener" aria-label="New Practice for TOEIC® Test — Google Play">
+              <img src="../images/google-play-badge.png" alt="Get it on Google Play" loading="lazy">
+            </a>
+            <a href="https://apps.apple.com/vn/app/new-toeic-test/id1462727474" class="store-badge" target="_blank" rel="noopener" aria-label="New Practice for TOEIC® Test — App Store">
+              <img src="../images/appstore-badge.png" alt="Download on the App Store" loading="lazy">
+            </a>
+          </div>
+        </article>
+
+        <article class="app-card reveal" style="--accent: #dc2626;">
+          <a class="app-card__link" href="https://chess-ninja.pages.dev/" target="_blank" rel="noopener"
+             aria-label="Chess Ninja: Wave Survival">
+            <div class="app-card__icon-wrap">
+              <img src="../images/chess-ninja-01.png" alt="Chess Ninja: Wave Survival" class="app-card__icon" loading="lazy">
+            </div>
+            <div class="app-card__body">
+            <span class="app-card__badge">新着</span>
+              <h3 class="app-card__title">Chess Ninja: Wave Survival</h3>
+              <p class="app-card__tagline">どこまで生き残れる？</p>
+              <p class="app-card__description">敵の駒を取ってその能力を奪い、連続撃破で最大×8のコンボボーナスを狙い、1つの盤上で無限に押し寄せる波を生き延びよう。無料プレイ、アカウント不要。</p>
+              <div class="app-card__meta">
+              <span class="app-card__meta-item">6種類の駒</span>
+              <span class="app-card__meta-item">基本無料</span>
+              </div>
+            </div>
+          </a>
+          <div class="app-card__actions">
+            <a href="https://play.google.com/store/apps/details?id=com.tvt.chess.ninja" class="store-badge" target="_blank" rel="noopener" aria-label="Chess Ninja: Wave Survival — Google Play">
+              <img src="../images/google-play-badge.png" alt="Get it on Google Play" loading="lazy">
+            </a>
+            <a href="https://apps.apple.com/app/chess-ninja-wave-survival/id6807704026" class="store-badge" target="_blank" rel="noopener" aria-label="Chess Ninja: Wave Survival — App Store">
+              <img src="../images/appstore-badge.png" alt="Download on the App Store" loading="lazy">
+            </a>
+          </div>
+        </article>
+
+        <article class="app-card reveal" style="--accent: #f59e0b;">
+          <a class="app-card__link" href="https://crack-the-code-pro.pages.dev/" target="_blank" rel="noopener"
+             aria-label="Crack the Code Pro">
+            <div class="app-card__icon-wrap">
+              <img src="../images/crack-the-code-01.png" alt="Crack the Code Pro" class="app-card__icon" loading="lazy">
+            </div>
+            <div class="app-card__body">
+              <h3 class="app-card__title">Crack the Code Pro</h3>
+              <p class="app-card__tagline">頭を悩ませ続ける無限パズル</p>
+              <p class="app-card__description">各ヒントに隠された正しい数字を見つけて鍵を開けよう。ルールは簡単、やめられない面白さ — 友達と競い合える無限のレベル。</p>
+              <div class="app-card__meta">
+              <span class="app-card__meta-item"><svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6-4.5-4.2 6.1-.7L10 1.5z"/></svg>
+                4.6
+              </span>
+              <span class="app-card__meta-item">17,000+ インストール</span>
+              </div>
+            </div>
+          </a>
+          <div class="app-card__actions">
+            <a href="https://play.google.com/store/apps/details?id=com.tvt.crackthecode" class="store-badge" target="_blank" rel="noopener" aria-label="Crack the Code Pro — Google Play">
+              <img src="../images/google-play-badge.png" alt="Get it on Google Play" loading="lazy">
+            </a>
+            <a href="https://apps.apple.com/vn/app/crack-the-code-pro/id1510109064" class="store-badge" target="_blank" rel="noopener" aria-label="Crack the Code Pro — App Store">
+              <img src="../images/appstore-badge.png" alt="Download on the App Store" loading="lazy">
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="wrapper about__inner">
+      <div class="about__text reveal">
+        <p class="eyebrow">TvTroidについて</p>
+        <h2>小さなチーム。シンプルなアプリ。無駄なし。</h2>
+        <p>私たちは、役に立つ無駄のないモバイルアプリ作りに注力するインディースタジオです — 間隔反復の学習ツールから夢中になるパズルゲームまで。どのアプリも一つのことを上手くこなし、素早く起動し、あなたの時間を大切にするよう設計されています。</p>
+      </div>
+      <div class="about__features reveal">
+        <div class="feature">
+          <div class="feature__icon">🚀</div>
+          <h3>高速&amp;軽量</h3>
+          <p>肥大化も雑然さもなく、本当に必要な機能だけ。</p>
+        </div>
+        <div class="feature">
+          <div class="feature__icon">🎯</div>
+          <h3>目的を持った設計</h3>
+          <p>どのアプリも実際の課題を、学習科学の裏付けとともに解決します。</p>
+        </div>
+        <div class="feature">
+          <div class="feature__icon">🔒</div>
+          <h3>プライバシーを尊重</h3>
+          <p>データ収集は最小限かつ透明に。常に。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrapper cta__inner reveal">
+      <h2>試してみませんか？</h2>
+      <p>今日どれでもダウンロード — 無料、高速、ワンタップ。</p>
+      <a href="#apps" class="btn btn--primary btn--lg">
+        すべてのアプリを見る
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3.5 8h9m0 0L8.5 4M12.5 8L8.5 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrapper site-footer__inner">
+    <div class="site-footer__brand">
+      <img src="../images/tvtroid-icon.png" alt="TvTroid" class="site-footer__logo">
+      <p>愛されるアプリを作っています</p>
+    </div>
+    <div class="site-footer__links">
+      <a href="mailto:contact.tvtroid@gmail.com">contact.tvtroid@gmail.com</a>
+      <a href="../privacy-policy/">プライバシーポリシー</a>
+    </div>
+  </div>
+  <div class="wrapper site-footer__bottom">
+    <p>&copy; <span id="year">2026</span> TvTroid. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="../assets/main.js" defer></script>
+</body>
+</html>
