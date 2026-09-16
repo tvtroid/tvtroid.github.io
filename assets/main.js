@@ -11,7 +11,14 @@ var TvTroidLang = (function () {
     return parts;
   }
 
-  // Language pages live one directory below the site root, at /<lang>/.
+  // Language pages live at the site root or one directory below it, at
+  // /<lang>/. Other pages (e.g. /privacy-policy/) are shared across all
+  // languages and must not be treated as, or rewritten into, a lang page.
+  function isLangPage() {
+    var parts = segments();
+    return parts.length === 0 || (parts.length === 1 && LANGS.indexOf(parts[0]) > -1);
+  }
+
   function current() {
     var parts = segments();
     var last = parts[parts.length - 1];
@@ -33,6 +40,7 @@ var TvTroidLang = (function () {
 
   // First visit: send the visitor to their browser's language if we have it.
   function autoRedirect() {
+    if (!isLangPage()) return;
     var saved;
     try { saved = localStorage.getItem(KEY); } catch (e) {}
     if (saved) {
