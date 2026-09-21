@@ -59,6 +59,19 @@ APPS = [
         android="https://play.google.com/store/apps/details?id=com.tvt.crackthecode",
         ios="https://apps.apple.com/vn/app/crack-the-code-pro/id1510109064",
     ),
+    dict(
+        slug="vstep-practice",
+        name="VSTEP Practice",
+        site="https://thi-vstep.pages.dev/",
+        icon="images/vstep-icon.png",
+        accent="#2952e3",
+        featured=False,
+        badge="badge_new",
+        rating=None,
+        installs=None,
+        android="https://play.google.com/store/apps/details?id=com.tvt.vstep",
+        ios=None,
+    ),
 ]
 
 INSTALL_TOTAL = "217,000"
@@ -95,6 +108,9 @@ STRINGS = {
             meta=["6 playable pieces", "Free to play"]),
         "crack-the-code": dict(tagline="An endless puzzle that keeps you guessing",
             desc="Find the correct numbers hidden in each riddle to unlock the key. Simple to learn, hard to put down — compete with friends across endless levels."),
+        "vstep-practice": dict(tagline="Practice all 4 VSTEP skills in real exam format",
+            desc="Listening, Reading, Writing, and Speaking mock tests matching the real VSTEP.3-5 timing and structure, with bilingual transcripts and smart review reminders. Free, works offline.",
+            meta=["4 skills covered", "Works offline"]),
     },
 ),
 "vi": dict(
@@ -128,6 +144,9 @@ STRINGS = {
             meta=["6 quân cờ chơi được", "Miễn phí"]),
         "crack-the-code": dict(tagline="Trò giải đố bất tận khiến bạn phải suy nghĩ",
             desc="Tìm các con số đúng ẩn trong mỗi câu đố để mở khóa. Dễ học, khó bỏ xuống — thi đấu cùng bạn bè qua vô số màn chơi."),
+        "vstep-practice": dict(tagline="Luyện đủ 4 kỹ năng VSTEP theo đúng cấu trúc đề thi thật",
+            desc="Đề thi thử Nghe, Đọc, Viết, Nói sát cấu trúc và thời gian đề thi VSTEP.3-5, có transcript song ngữ và nhắc ôn tập thông minh. Miễn phí, học offline.",
+            meta=["Đủ 4 kỹ năng", "Học offline"]),
     },
 ),
 "ja": dict(
@@ -161,6 +180,9 @@ STRINGS = {
             meta=["6種類の駒", "基本無料"]),
         "crack-the-code": dict(tagline="頭を悩ませ続ける無限パズル",
             desc="各ヒントに隠された正しい数字を見つけて鍵を開けよう。ルールは簡単、やめられない面白さ — 友達と競い合える無限のレベル。"),
+        "vstep-practice": dict(tagline="VSTEP4技能を本番形式で練習",
+            desc="リスニング・リーディング・ライティング・スピーキングの模擬試験が、本番のVSTEP.3-5と同じ構成・時間で受けられます。バイリンガル文字起こし付きでスマートな復習リマインダーも。無料・オフライン対応。",
+            meta=["4技能に対応", "オフライン対応"]),
     },
 ),
 "ko": dict(
@@ -194,6 +216,9 @@ STRINGS = {
             meta=["6가지 기물", "무료 플레이"]),
         "crack-the-code": dict(tagline="계속 머리를 쓰게 하는 끝없는 퍼즐",
             desc="각 힌트에 숨겨진 정확한 숫자를 찾아 열쇠를 여세요. 배우기 쉽고 놓기 어렵습니다 — 끝없는 레벨에서 친구들과 경쟁하세요."),
+        "vstep-practice": dict(tagline="실제 시험 형식 그대로 VSTEP 4개 영역 연습",
+            desc="듣기, 읽기, 쓰기, 말하기 모의고사를 실제 VSTEP.3-5와 동일한 구성과 시간으로 응시할 수 있습니다. 이중 언어 스크립트와 스마트 복습 알림 제공. 무료, 오프라인 지원.",
+            meta=["4개 영역 모두", "오프라인 지원"]),
     },
 ),
 "zh": dict(
@@ -227,6 +252,9 @@ STRINGS = {
             meta=["6 种可用棋子", "免费游玩"]),
         "crack-the-code": dict(tagline="让你不断猜下去的无尽益智游戏",
             desc="找出每条谜题中隐藏的正确数字来解锁钥匙。易学难放下 — 在无尽关卡中与好友一较高下。"),
+        "vstep-practice": dict(tagline="按真实考试形式练习 VSTEP 四项技能",
+            desc="听力、阅读、写作、口语模拟测试完全对照真实 VSTEP.3-5 的结构和时间安排，配有双语文本和智能复习提醒。免费，支持离线使用。",
+            meta=["覆盖四项技能", "支持离线"]),
     },
 ),
 "th": dict(
@@ -260,6 +288,9 @@ STRINGS = {
             meta=["หมาก 6 แบบ", "เล่นฟรี"]),
         "crack-the-code": dict(tagline="เกมปริศนาไม่รู้จบที่ท้าทายคุณตลอดเวลา",
             desc="ค้นหาตัวเลขที่ถูกต้องซึ่งซ่อนอยู่ในแต่ละปริศนาเพื่อปลดล็อกกุญแจ เรียนรู้ง่ายแต่วางไม่ลง — แข่งกับเพื่อนผ่านด่านไม่รู้จบ"),
+        "vstep-practice": dict(tagline="ฝึกครบ 4 ทักษะ VSTEP ในรูปแบบข้อสอบจริง",
+            desc="ข้อสอบจำลอง ฟัง อ่าน เขียน พูด ตรงตามโครงสร้างและเวลาของข้อสอบ VSTEP.3-5 จริง พร้อมบทถอดเสียงสองภาษาและระบบแจ้งเตือนทบทวนอัจฉริยะ ฟรี ใช้งานออฟไลน์ได้",
+            meta=["ครบ 4 ทักษะ", "ใช้งานออฟไลน์ได้"]),
     },
 ),
 "es": dict(
@@ -293,6 +324,9 @@ STRINGS = {
             meta=["6 piezas jugables", "Gratis"]),
         "crack-the-code": dict(tagline="Un puzzle infinito que te mantiene pensando",
             desc="Encuentra los números correctos ocultos en cada acertijo para desbloquear la llave. Fácil de aprender, difícil de soltar: compite con amigos en niveles infinitos."),
+        "vstep-practice": dict(tagline="Practica las 4 destrezas del VSTEP en formato de examen real",
+            desc="Exámenes simulados de Listening, Reading, Writing y Speaking con la estructura y el tiempo reales del VSTEP.3-5, con transcripciones bilingües y recordatorios de repaso inteligentes. Gratis y funciona sin conexión.",
+            meta=["4 destrezas cubiertas", "Funciona sin conexión"]),
     },
 ),
 "fr": dict(
@@ -326,6 +360,9 @@ STRINGS = {
             meta=["6 pièces jouables", "Gratuit"]),
         "crack-the-code": dict(tagline="Un puzzle sans fin qui vous tient en haleine",
             desc="Trouvez les bons chiffres cachés dans chaque énigme pour déverrouiller la clé. Facile à apprendre, difficile à lâcher — affrontez vos amis sur des niveaux infinis."),
+        "vstep-practice": dict(tagline="Entraînez les 4 compétences du VSTEP en conditions réelles",
+            desc="Examens blancs de compréhension orale, compréhension écrite, expression écrite et expression orale au format et au minutage réels du VSTEP.3-5, avec transcriptions bilingues et rappels de révision intelligents. Gratuit, fonctionne hors ligne.",
+            meta=["4 compétences couvertes", "Fonctionne hors ligne"]),
     },
 ),
 "id": dict(
@@ -359,6 +396,9 @@ STRINGS = {
             meta=["6 bidak dimainkan", "Gratis dimainkan"]),
         "crack-the-code": dict(tagline="Teka-teki tanpa akhir yang terus membuat Anda menebak",
             desc="Temukan angka yang benar tersembunyi di setiap teka-teki untuk membuka kunci. Mudah dipelajari, sulit dilepaskan — bersainglah dengan teman di level tanpa akhir."),
+        "vstep-practice": dict(tagline="Latihan 4 keterampilan VSTEP dengan format ujian asli",
+            desc="Tes simulasi Listening, Reading, Writing, dan Speaking sesuai struktur dan waktu ujian VSTEP.3-5 yang sebenarnya, dengan transkrip dwibahasa dan pengingat ulasan cerdas. Gratis, bisa dipakai offline.",
+            meta=["4 keterampilan tercakup", "Bisa dipakai offline"]),
     },
 ),
 "el": dict(
@@ -392,6 +432,9 @@ STRINGS = {
             meta=["6 κομμάτια", "Δωρεάν"]),
         "crack-the-code": dict(tagline="Ένας ατελείωτος γρίφος που σας κρατά σε εγρήγορση",
             desc="Βρείτε τους σωστούς αριθμούς που κρύβονται σε κάθε γρίφο για να ξεκλειδώσετε το κλειδί. Εύκολο να το μάθετε, δύσκολο να το αφήσετε — συναγωνιστείτε φίλους σε ατελείωτα επίπεδα."),
+        "vstep-practice": dict(tagline="Εξασκηθείτε και στις 4 δεξιότητες του VSTEP σε πραγματική μορφή εξέτασης",
+            desc="Δοκιμαστικές εξετάσεις Listening, Reading, Writing και Speaking με τη δομή και τον χρόνο της πραγματικής εξέτασης VSTEP.3-5, με δίγλωσσες απομαγνητοφωνήσεις και έξυπνες υπενθυμίσεις επανάληψης. Δωρεάν, λειτουργεί χωρίς σύνδεση.",
+            meta=["Καλύπτει 4 δεξιότητες", "Λειτουργεί χωρίς σύνδεση"]),
     },
 ),
 }

@@ -52,6 +52,12 @@ def app_card(app, t, lang):
             for m in a.get("meta", [])
         )
 
+    ios_badge = ""
+    if app.get("ios"):
+        ios_badge = (f'            <a href="{esc(app["ios"])}" class="store-badge" target="_blank" rel="noopener" aria-label="{name} — App Store">\n'
+                     f'              <img src="{rel("images/appstore-badge.png", lang)}" alt="Download on the App Store" loading="lazy">\n'
+                     f'            </a>\n')
+
     # Whole card links to the app's own landing page; store badges keep their
     # own links and stop the click from bubbling up to the card.
     return f"""        <article class="{cls} reveal" style="--accent: {app['accent']};">
@@ -72,10 +78,7 @@ def app_card(app, t, lang):
             <a href="{esc(app['android'])}" class="store-badge" target="_blank" rel="noopener" aria-label="{name} — Google Play">
               <img src="{rel('images/google-play-badge.png', lang)}" alt="Get it on Google Play" loading="lazy">
             </a>
-            <a href="{esc(app['ios'])}" class="store-badge" target="_blank" rel="noopener" aria-label="{name} — App Store">
-              <img src="{rel('images/appstore-badge.png', lang)}" alt="Download on the App Store" loading="lazy">
-            </a>
-          </div>
+{ios_badge}          </div>
         </article>
 """
 
