@@ -23,7 +23,7 @@ APPS = [
     dict(
         slug="toeic-test",
         name="New Practice for TOEIC® Test",
-        site="https://new-toeic-test.pages.dev/",
+        site="https://toeic.nihicode.com/",
         icon="images/toeic-test-icon.png",
         accent="#3b82f6",
         featured=True,
@@ -36,7 +36,7 @@ APPS = [
     dict(
         slug="chess-ninja",
         name="Chess Ninja: Wave Survival",
-        site="https://chess-ninja.pages.dev/",
+        site="https://chess.nihicode.com/",
         icon="images/chess-ninja-icon.png",
         accent="#dc2626",
         featured=False,
@@ -49,7 +49,7 @@ APPS = [
     dict(
         slug="crack-the-code",
         name="Crack the Code Pro",
-        site="https://crack-the-code-pro.pages.dev/",
+        site="https://crackthecode.nihicode.com/",
         icon="images/crack-the-code-icon.png",
         accent="#f59e0b",
         featured=False,
@@ -62,7 +62,7 @@ APPS = [
     dict(
         slug="vstep-practice",
         name="VSTEP Practice",
-        site="https://thi-vstep.pages.dev/",
+        site="https://vstep.nihicode.com/",
         icon="images/vstep-icon.png",
         accent="#2952e3",
         featured=False,
